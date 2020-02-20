@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import * as nums from "./number";
 
 function App() {
   const style ={
@@ -16,8 +17,11 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
           <p>
-              Hello World !! Hello Web Hero School !!!
+            Hello World !! Hello Web Hero School !!!
           </p>
+        <div className="Modules">
+          <p>" count * length  =  {nums.count * nums.length} "</p>
+        </div>
         <div className="Jsx-lesson">
           <p style={style}>This is style object</p>
           <p>{myVar}</p>

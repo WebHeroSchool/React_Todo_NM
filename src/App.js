@@ -3,6 +3,14 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const style ={
+    color: 'pink'
+  };
+  const myVar = 'This is my variable';
+  const myNumber = 27;
+  const otherNumber = 72;
+  const boolVar = true;
+
   return (
     <div className="App">
       <header className="App-header">
@@ -13,14 +21,15 @@ function App() {
           <p>
               Hello World !! Hello Web Hero School !!!
           </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="Jsx-lesson">
+          <p style={style}>This is style object</p>
+          <p>{myVar}</p>
+          <p>{myNumber}</p>
+          <p>{myNumber + otherNumber}</p>
+          <p>{boolVar && 'This is logical operation'}</p>
+          <p>{boolVar ? 'This is true': 'This is false'}</p>
+          <p>undefined: {undefined}, null: {null}, false: {false}, true: {true}</p>
+        </div>
       </header>
     </div>
   );

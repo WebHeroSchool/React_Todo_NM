@@ -7,7 +7,7 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+@media (min-width: 375px) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
@@ -35,4 +35,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+.Jsx-lesson{
+  border: #61dafb 2px solid;
+  margin-bottom: 30px;
+  padding: 10px;
 }

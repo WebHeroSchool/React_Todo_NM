@@ -1,2 +1,0 @@
-(this.webpackJsonptodo=this.webpackJsonptodo||[]).push([[0],{3:function(e,n,t){e.exports=t(8)},8:function(e,n,t){"use strict";t.r(n);var l=t(0),r=t.n(l),a=t(2),o=function(){return r.a.createElement("ul",null,r.a.createElement("li",null,"1"),r.a.createElement("li",null,"2"))},u=function(){return r.a.createElement("div",null,r.a.createElement("h1",null,"Hello Web Hero School !!!"),r.a.createElement(o,null))};t.n(a).a.render(r.a.createElement(u,null),document.getElementById("root"))}},[[3,1,2]]]);
-//# sourceMappingURL=main.1f121d90.chunk.js.map

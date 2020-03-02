@@ -3,8 +3,10 @@
     align-items: center;
     flex-direction: column;
     font-size: 60px;
+    background: mistyrose;
+    height: 100vh;
 }
 .wrap__title{
-
+    color: darkred;
     font-family: "Apple SD Gothic Neo", sans-serif;
 }

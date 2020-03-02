@@ -1,7 +1,7 @@
 import React from "react";
 
-const Footer = () => (
-    <div> <span>Footer</span> </div>
+const Footer = ({count}) => (
+    <div> <span>We need to do : {count}</span> </div>
 );
 
 export default Footer;

@@ -8,14 +8,17 @@ const App = () => {
 
     const items = [
         {
-            value: 'Create the new app '
+            value: 'Create the new app ',
+            isDone: true
         },
         {
-            value: 'Insert props'
+            value: 'Insert props',
+            isDone: false
         },
         {
-            value: 'Do everything'
-        }
+            value: 'Do everything',
+            isDone: true
+        },
     ];
 
     return (

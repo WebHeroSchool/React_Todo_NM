@@ -18,7 +18,7 @@ const App = () => {
             isDone: false
         },
         {
-            value: 'Do everything',
+            value: 'Do all the tasks',
             isDone: true
         },
     ];

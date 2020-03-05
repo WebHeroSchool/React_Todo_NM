@@ -28,7 +28,7 @@ const App = () => {
         <div className={styles.wrap}>
                 <h1 className={styles.title}> TO DO List:</h1>
                 <InputItem />
-            <div className={styles.list}>
+            <div>
                 <ItemList items={items}/>
             </div>
             <Footer  count={3}/>

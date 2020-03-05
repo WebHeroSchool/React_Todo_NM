@@ -1,7 +1,10 @@
 import React from "react";
+import styles from './Footer.module.css';
 
 const Footer = ({count}) => (
-    <div> <span>We need to do : {count}</span> </div>
+    <div className={styles.wrap}>
+        <span className={styles.text}>Left TO DO  : {count}</span>
+    </div>
 );
 
 export default Footer;

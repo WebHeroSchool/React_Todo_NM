@@ -8,7 +8,8 @@ const InputItem = () => (
         <TextField
             id="filled-basic"
             label="Write here new TODO ..."
-            variant="filled" />
+            variant="filled"
+            className={styles.input}/>
         <Button
             href='#'
             variant="outlined"

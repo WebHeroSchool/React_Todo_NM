@@ -1,6 +1,17 @@
 .item{
     color: #333;
+    width: 600px;
 }
 .done{
     color: #bc8f8f;
+}
+.wrap{
+    min-height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+.btn {
+    cursor: pointer;
 }

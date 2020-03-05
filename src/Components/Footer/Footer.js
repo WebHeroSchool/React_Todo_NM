@@ -3,7 +3,7 @@ import styles from './Footer.module.css';
 
 const Footer = ({count}) => (
     <div className={styles.wrap}>
-        <span className={styles.text}>Left TO DO  : {count}</span>
+        <span className={styles.text}>Total tasks : {count}</span>
     </div>
 );
 

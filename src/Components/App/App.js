@@ -26,7 +26,7 @@ const App = () => {
     return (
 <Container fixed >
         <div className={styles.wrap}>
-                <h1 className={styles.title}> TO-DO List</h1>
+                <h1 className={styles.title}> TO DO List:</h1>
                 <InputItem />
             <div className={styles.list}>
                 <ItemList items={items}/>

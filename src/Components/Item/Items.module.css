@@ -1,16 +1,14 @@
 .item{
     color: #333;
-    width: 600px;
+    width:90%;
 }
 .done{
-    color: #bc8f8f;
+    color: darkgrey;
 }
 .wrap{
     min-height: 30px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex-direction: row;
 }
 .btn {
     cursor: pointer;

@@ -7,7 +7,7 @@ const InputItem = () => (
     <div className={styles.input}>
         <TextField
             id="filled-basic"
-            label="Write here new TODO ..."
+            label="ADD NEW TASK HERE"
             variant="filled"
             className={styles.input}/>
         <Button

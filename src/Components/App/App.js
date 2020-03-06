@@ -24,16 +24,16 @@ const App = () => {
     ];
 
     return (
-<Container fixed >
-        <div className={styles.wrap}>
-                <h1 className={styles.title}> TO DO List:</h1>
-                <InputItem />
-            <div>
-                <ItemList items={items}/>
+        <Container fixed>
+            <div className={styles.wrap}>
+                    <h1 className={styles.title}> TO DO List:</h1>
+                    <InputItem />
+                <div>
+                    <ItemList items={items}/>
+                </div>
+                <Footer  count={3}/>
             </div>
-            <Footer  count={3}/>
-            </div>
-</Container>
+        </Container>
     );
 };
 

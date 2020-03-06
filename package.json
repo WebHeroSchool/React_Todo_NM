@@ -20,7 +20,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:3000/React_TODO_NM",
+  "proxy": "http://localhost:3000/",
   "eslintConfig": {
     "extends": "react-app"
   },

@@ -6,29 +6,31 @@ import styles  from './App.module.css';
 import { Container } from '@material-ui/core';
 
 class App extends React.Component{
-    render() {
-        const items = [
+    state = {
+        items: [
             {
                 value: 'Create the new app ',
                 isDone: true
             },
             {
-                value: 'Insert props',
-                isDone: false
+            value: 'Insert props',
+            isDone: false
             },
             {
-                value: 'Do all the tasks',
-                isDone: true
-            },
-        ];
+            value: 'Do all the tasks',
+            isDone: true
+            }
+        ]
+    };
 
+    render() {
         return (
             <Container fixed>
                 <div className={styles.wrap}>
                     <h1 className={styles.title}> TO DO List:</h1>
                     <InputItem />
                     <div>
-                        <ItemList items={items}/>
+                        <ItemList items={this.state.items}/>
                     </div>
                     <Footer  count={3}/>
                 </div>

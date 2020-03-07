@@ -5,7 +5,7 @@ import Footer from '../Footer/Footer';
 import styles  from './App.module.css';
 import { Container } from '@material-ui/core';
 
-class App extends React.Component{
+class App extends React.Component {
     state = {
         items: [
             {
@@ -26,7 +26,16 @@ class App extends React.Component{
         ]
     };
 
-    onClickDone = isDone =>console.log(isDone);
+    onClickDone = id => {
+        const newItemList = this.state.items.map(item => {
+            const newItem = {...item};
+            if (item.id === id) {
+                newItem.isDone = !item.isDone;
+            }
+            return newItem;
+        });
+        this.setState({items: newItemList});
+    };
 
 
     render() {
@@ -34,11 +43,11 @@ class App extends React.Component{
             <Container fixed>
                 <div className={styles.wrap}>
                     <h1 className={styles.title}> TO DO List:</h1>
-                    <InputItem />
+                    <InputItem/>
                     <div>
                         <ItemList items={this.state.items} onClickDone={this.onClickDone}/>
                     </div>
-                    <Footer  count={3}/>
+                    <Footer count={3}/>
                 </div>
             </Container>
         );

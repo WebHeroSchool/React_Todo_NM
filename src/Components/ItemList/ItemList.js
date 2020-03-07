@@ -8,6 +8,7 @@ const ItemList = ({items, onClickDone}) =>(
             <Items key={item.value}
                   value={item.value}
                   isDone={item.isDone}
+                   id={item.id}
                   onClickDone={onClickDone}
             />
         )}

@@ -10,15 +10,18 @@ class App extends React.Component{
         items: [
             {
                 value: 'Create the new app ',
-                isDone: true
+                isDone: true,
+                id: 1
             },
             {
-            value: 'Insert props',
-            isDone: false
+                value: 'Insert props',
+                isDone: false,
+                id: 2
             },
             {
-            value: 'Do all the tasks',
-            isDone: true
+                value: 'Do all the tasks',
+                isDone: true,
+                id: 3
             }
         ]
     };

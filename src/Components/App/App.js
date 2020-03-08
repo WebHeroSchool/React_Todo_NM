@@ -38,6 +38,11 @@ class App extends React.Component {
     };
 
 
+    onClickDelete = id =>{
+        const newItemList = this.state.items.filter(item => item.id !== id);
+        this.setState({items: newItemList});
+    };
+
     render() {
         return (
             <Container fixed>
@@ -45,7 +50,10 @@ class App extends React.Component {
                     <h1 className={styles.title}> TO DO List:</h1>
                     <InputItem/>
                     <div>
-                        <ItemList items={this.state.items} onClickDone={this.onClickDone}/>
+                        <ItemList
+                            items={this.state.items}
+                            onClickDone={this.onClickDone}
+                            onClickDelete={this.onClickDelete} />
                     </div>
                     <Footer count={3}/>
                 </div>

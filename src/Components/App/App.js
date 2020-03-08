@@ -23,10 +23,11 @@ class App extends React.Component {
                 isDone: true,
                 id: 3
             }
-        ]
+        ],
+        count: 3
     };
 
-    onClickDone = id => {
+    onClickDone = (id) => {
         const newItemList = this.state.items.map(item => {
             const newItem = {...item};
             if (item.id === id) {
@@ -37,25 +38,38 @@ class App extends React.Component {
         this.setState({items: newItemList});
     };
 
-
-    onClickDelete = id =>{
+    onClickDelete = (id) => {
         const newItemList = this.state.items.filter(item => item.id !== id);
         this.setState({items: newItemList});
     };
+
+    onClickAdd = (value) => this.setState(state => ({
+        items:[
+            ...state.items,
+            {
+                value,
+                isDone: false,
+                id: state.count + 1
+            }
+            ],
+        count: state.count + 1
+    }));
 
     render() {
         return (
             <Container fixed>
                 <div className={styles.wrap}>
                     <h1 className={styles.title}> TO DO List:</h1>
-                    <InputItem/>
+                    <InputItem onClickAdd={this.onClickAdd} />
                     <div>
                         <ItemList
                             items={this.state.items}
                             onClickDone={this.onClickDone}
-                            onClickDelete={this.onClickDelete} />
+                            onClickDelete={this.onClickDelete}
+
+                        />
                     </div>
-                    <Footer count={3}/>
+                    <Footer count={this.state.count}/>
                 </div>
             </Container>
         );

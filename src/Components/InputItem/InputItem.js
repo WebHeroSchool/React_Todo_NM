@@ -6,11 +6,19 @@ import styles from './InputItem.module.css';
 
 class InputItem extends React.Component{
     state ={
-        inputValue: ''
+        inputValue: '',
+        helperText: '',
+        error: false
+    };
+
+    onButtonClickClearInput = () => {
+
+        this.state.inputValue === '' ?
+            this.setState({helperText: 'This field is requiered', error:true}) :
+            this.props.onClickAdd( this.state.inputValue )
     };
 
     render(){
-        const{onClickAdd} = this.props;
 
         return (
             <div className={styles.input}>
@@ -21,13 +29,20 @@ class InputItem extends React.Component{
                     variant="filled"
                     className={styles.input}
                     value={this.state.inputValue}
-                    onChange={event => this.setState({ inputValue: event.target.value })}
+                    onChange={event =>
+                        this.setState(
+                            { inputValue: event.target.value.toUpperCase(),
+                                        error: false,
+                                        helperText: '' }
+                            )}
+                    helperText={this.state.helperText}
+                    error={this.state.error}
                 />
                 <Button
                     href='#'
                     variant="outlined"
                     size="large"
-                    onClick={() => onClickAdd(this.state.inputValue)}
+                    onClick={this.onButtonClickClearInput}
                 >
                     Add
                 </Button>

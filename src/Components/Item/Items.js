@@ -19,7 +19,7 @@ const Items = ({id, value, isDone,  onClickDone, onClickDelete}) => (
             [styles.item]: true,
             [styles.done]: isDone
         })
-    }> {value}! </span>
+    }> {value} </span>
 
         <DeleteIcon
             className={styles.btn}

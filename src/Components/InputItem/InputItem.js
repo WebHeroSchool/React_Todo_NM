@@ -12,10 +12,9 @@ class InputItem extends React.Component{
     };
 
     onButtonClickClearInput = () => {
-
         this.state.inputValue === '' ?
             this.setState({helperText: 'This field is requiered', error:true}) :
-            this.props.onClickAdd( this.state.inputValue )
+            this.props.onClickAdd( this.state.inputValue );
     };
 
     render(){

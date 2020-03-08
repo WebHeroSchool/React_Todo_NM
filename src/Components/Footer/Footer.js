@@ -6,5 +6,9 @@ const Footer = ({count}) => (
         <span className={styles.text}>Total tasks : {count}</span>
     </div>
 );
+Footer.defaultProps = {
+    count: 0
+};
+
 
 export default Footer;

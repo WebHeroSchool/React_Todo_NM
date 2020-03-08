@@ -1,6 +1,7 @@
 .item{
     color: #333;
     width:90%;
+    font-size: 20px;
 }
 .done{
     color: darkgrey;

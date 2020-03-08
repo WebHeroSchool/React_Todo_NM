@@ -2,58 +2,30 @@ import React from "react";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import styles from './InputItem.module.css';
-import ItemList from "../ItemList/ItemList";
+
 
 
 class InputItem extends React.Component{
-    state ={
-        inputArray: <ItemList />,
+    state =
+        {
         inputValue: '',
         helperText: '',
-        error: false
-    };
-
-
-    // addItem = () => {
-    //     let newValue = this.state.inputValue;
-    //     let newArray = this.state.inputArray;
-    //
-    //
-    //     if (newArray.includes(newValue)) {
-    //         this.setState({helperText: 'Already exist', error:true});
-    //     } else {
-    //         newValue === '' ?
-    //             this.setState({helperText: 'This field is requiered', error: true}) :
-    //             this.props.onClickAdd(this.state.inputValue);
-    //     }
-        // this.setState(previousState => ({
-        //     inputArray: [...previousState.inputArray, newValue]
-        // }, () =>  console.log(this.state.inputArray)));
-
-    // };
+        error: false,
+        };
 
 
     clearInputHandler = () => {
-        // newValue === ''  ?
-        //     this.setState({helperText: 'This field is requiered', error:true}) :
-        // this.props.onClickAdd( this.state.inputValue );
-        let newValue = this.state.inputValue;
-        let newArray = this.state.inputArray;
 
+         this.state.inputValue ===  '' ?
+            this.setState({helperText: 'This field is requiered', error: true}) :
+            this.props.onClickAdd(this.state.inputValue);
 
-        if (newArray.includes(newValue)) {
-            this.setState({helperText: 'Already exist', error: true});
-        } else {
-            newValue === '' ?
-                this.setState({helperText: 'This field is requiered', error: true}) :
-                this.props.onClickAdd(this.state.inputValue);
-
-            this.setState({inputValue: ''});
-        }
+        this.setState({inputValue: ''});
 
     };
 
     render(){
+        // const {onClickAdd} = this.props;
 
         return (
             <div className={styles.input}>
@@ -63,7 +35,6 @@ class InputItem extends React.Component{
                     label="ADD NEW TASK HERE"
                     variant="filled"
                     className={styles.input}
-                    value={this.state.inputValue}
                     onChange={event =>
                         this.setState(
                             { inputValue: event.target.value.toUpperCase(),
@@ -72,6 +43,7 @@ class InputItem extends React.Component{
                             )}
                     helperText={this.state.helperText}
                     error={this.state.error}
+                    value={this.state.inputValue}
                 />
                 <Button
                     href='#'

@@ -9,17 +9,17 @@ class App extends React.Component {
     state = {
         items: [
             {
-                value: 'Create the new app ',
+                value: 'CREATE NEW APP ',
                 isDone: true,
                 id: 1
             },
             {
-                value: 'Insert props',
+                value: 'INSERT PROPS',
                 isDone: false,
                 id: 2
             },
             {
-                value: 'Do all the tasks',
+                value: 'DO ALL TASKS',
                 isDone: true,
                 id: 3
             }
@@ -46,23 +46,25 @@ class App extends React.Component {
         }));
     };
 
-    onClickAdd = (value) => this.setState(state => ({
+    onClickAdd = (value) => {this.setState(state => ({
         items:[
             ...state.items,
             {
                 value,
                 isDone: false,
+                isExist: false,
                 id: state.count + 1
             }
             ],
-        count: state.count + 1
-    }));
+        count: state.count + 1,
+
+    }))};
 
     render() {
         return (
             <Container fixed>
                 <div className={styles.wrap}>
-                    <h1 className={styles.title}> TO DO List:</h1>
+                    <h1 className={styles.title}> TO-DO LIST:</h1>
                     <InputItem onClickAdd={this.onClickAdd} />
                     <div>
                         <ItemList

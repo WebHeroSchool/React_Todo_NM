@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from './Items.module.css';
+import styles from './Item.module.css';
 import classname from 'classnames';
 import Checkbox from '@material-ui/core/Checkbox';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 
-const Items = ({id, value, isDone,  onClickDone, onClickDelete}) => (
+const Item = ({id, value, isDone,  onClickDone, onClickDelete}) => (
     <div className={styles.wrap}>
         <Checkbox
             checked={isDone}
@@ -31,4 +31,4 @@ const Items = ({id, value, isDone,  onClickDone, onClickDelete}) => (
 
 );
 
-export default Items;
+export default Item;

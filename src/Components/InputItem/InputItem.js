@@ -16,6 +16,10 @@ class InputItem extends React.Component{
 
     clearInputHandler = () => {
 
+        // let newItems = [...this.state.items];
+        //     newItems.filter((el)=> el !== this.state.inputValue);
+        // console.log(newItems);
+
          this.state.inputValue ===  '' ?
             this.setState({helperText: 'This field is requiered', error: true}) :
             this.props.onClickAdd(this.state.inputValue);

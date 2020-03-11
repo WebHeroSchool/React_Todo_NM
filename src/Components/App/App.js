@@ -65,14 +65,17 @@ class App extends React.Component {
             <Container fixed>
                 <div className={styles.wrap}>
                     <h1 className={styles.title}> TO-DO LIST:</h1>
-                    <InputItem onClickAdd={this.onClickAdd} />
+                    <InputItem
+                        onClickAdd={this.onClickAdd}
+                        items={this.state.items}
+                    />
                     <div>
-                        <ItemList
-                            items={this.state.items}
-                            onClickDone={this.onClickDone}
-                            onClickDelete={this.onClickDelete}
+                    <ItemList
+                          items={this.state.items}
+                          onClickDone={this.onClickDone}
+                          onClickDelete={this.onClickDelete}
 
-                        />
+                    />
                     </div>
                     <Footer count={this.state.count}/>
                 </div>

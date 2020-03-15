@@ -9,7 +9,7 @@ class App extends React.Component {
     state = {
         items: [
             {
-                value: 'CREATE NEW APP ',
+                value: 'CREATE NEW APP',
                 isDone: true,
                 id: 1
             },

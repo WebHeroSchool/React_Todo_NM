@@ -46,6 +46,17 @@ class App extends React.Component {
         }));
     };
 
+    // valueValidation = (value) => {
+    //     const newItemList = this.state.items.map(item => {
+    //         const newItem = {...item};
+    //         if (item.value === value) {
+    //             {helperText: 'There is already same task', error: true}
+    //         }
+    //         return newItem;
+    //     });
+    //     this.setState({items: newItemList});
+    // };
+
     onClickAdd = (value) => {this.setState(state => ({
         items:[
             ...state.items,

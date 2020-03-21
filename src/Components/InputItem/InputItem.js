@@ -11,6 +11,7 @@ class InputItem extends React.Component{
         inputValue: '',
         helperText: '',
         error: false,
+        isExist: false
         };
 
 
@@ -19,22 +20,23 @@ class InputItem extends React.Component{
          for(let i = 0; i < items.length; i++) {
             if( this.state.inputValue ===  '' ) {
 
-                return  this.setState({helperText: 'This field is required', error: true});
+                return this.setState({helperText: 'This field is required', error: true});
 
-            } else if(this.state.inputValue === items[i].value) {
+                 } else if(this.state.inputValue === items[i].value) {
+            // }else if (items[i].isExist){
                 this.setState({inputValue: ''});
                 return  this.setState({helperText: 'This task already exists', error: true})
             }
          }
 
-        this.props.onClickAdd(this.state.inputValue);
+        this.props.onClickAdd(this.state.inputValue, this.state.isExist);
 
-        this.setState({inputValue: ''});
+        this.setState({inputValue: '', isExist: true});
 
     };
 
     render(){
-         const {onClickAdd, items} = this.props;
+         const {onClickAdd, items, isExist} = this.props;
 
         return (
             <div className={styles.input}>
@@ -58,7 +60,7 @@ class InputItem extends React.Component{
                     href='#'
                     variant="outlined"
                     size="large"
-                    onClick={()=>this.clearInputHandler({items, onClickAdd})}
+                    onClick={()=>this.clearInputHandler({items, onClickAdd, isExist})}
                 >
                     Add
                 </Button>

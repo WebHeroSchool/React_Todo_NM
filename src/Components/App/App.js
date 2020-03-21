@@ -10,21 +10,26 @@ class App extends React.Component {
         items: [
             {
                 value: 'CREATE NEW APP',
-                isDone: true,
+                isDone: false,
+                isExist: true,
                 id: 1
             },
             {
                 value: 'INSERT PROPS',
                 isDone: false,
+                isExist:true,
                 id: 2
             },
             {
                 value: 'DO ALL TASKS',
-                isDone: true,
+                isDone: false,
+                isExist:true,
                 id: 3
             }
         ],
+
         count: 3
+
     };
 
     onClickDone = (id) => {
@@ -46,13 +51,13 @@ class App extends React.Component {
         }));
     };
 
-    onClickAdd = (value) => {this.setState(state => ({
+    onClickAdd = (value, isExist) => {this.setState(state => ({
         items:[
             ...state.items,
             {
                 value,
                 isDone: false,
-                isExist: false,
+                isExist,
                 id: state.count + 1
             }
             ],

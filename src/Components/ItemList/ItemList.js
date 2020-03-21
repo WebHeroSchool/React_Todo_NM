@@ -1,6 +1,6 @@
 import React from 'react';
 import Item from '../Item/Item';
-import styles from './ItemList.module.css'
+import styles from './ItemList.module.css';
 
 const ItemList = ({items, onClickDone, onClickDelete}) =>(
 <div className={styles.wrap}>

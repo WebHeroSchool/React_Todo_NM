@@ -47,17 +47,18 @@ class App extends React.Component {
         const newItemList = this.state.items.filter(item => item.id !== id);
         this.setState(state => ({
             items: newItemList,
-            count: state.count - 1
+            count: state.count - 1,
+            isExist: !this.isExist
         }));
     };
 
-    onClickAdd = (value, isExist) => {this.setState(state => ({
+    onClickAdd = (value) => {this.setState(state => ({
         items:[
             ...state.items,
             {
                 value,
                 isDone: false,
-                isExist,
+                isExist: !this.isExist,
                 id: state.count + 1
             }
             ],

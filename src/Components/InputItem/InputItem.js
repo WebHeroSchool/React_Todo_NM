@@ -16,9 +16,10 @@ class InputItem extends React.Component{
 
 
     clearInputHandler = ({items}) => {
+    console.log(this.state.inputValue);
 
-        if ( this.state.inputValue === '' || this.state.inputValue === ' ' ){
-          //  this.setState({inputValue: ''});
+        // if ( this.state.inputValue === '' || this.state.inputValue === ' ' ){
+         if(!(/^\w/.test(this.state.inputValue))){
             return this.setState({helperText: 'This field is required', error: true});
         }
 

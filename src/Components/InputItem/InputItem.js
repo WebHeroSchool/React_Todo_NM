@@ -11,27 +11,26 @@ class InputItem extends React.Component{
         inputValue: '',
         helperText: '',
         error: false,
-        isExist: false
+        isExist: false,
         };
 
 
     clearInputHandler = ({items}) => {
 
-         for(let i = 0; i < items.length; i++) {
-            if( this.state.inputValue ===  '' ) {
+        if ( this.state.inputValue === '' || this.state.inputValue === ' ' )
+            return this.setState({helperText: 'This field is required', error: true});
 
-                return this.setState({helperText: 'This field is required', error: true});
-
-                 } else if(this.state.inputValue === items[i].value) {
-            // }else if (items[i].isExist){
-                this.setState({inputValue: ''});
-                return  this.setState({helperText: 'This task already exists', error: true})
+        for(let i = 0; i < items.length; i++) {
+            if(this.state.inputValue === items[i].value) {
+                    this.setState({inputValue: ''});
+                    return  this.setState({helperText: 'This task already exists', error: true})
+                 }
             }
-         }
 
-        this.props.onClickAdd(this.state.inputValue, this.state.isExist);
+            this.props.onClickAdd(this.state.inputValue);
 
-        this.setState({inputValue: '', isExist: true});
+            this.setState({inputValue: ''});
+
 
     };
 
@@ -40,6 +39,7 @@ class InputItem extends React.Component{
 
         return (
             <div className={styles.input}>
+
                 <TextField
                     type="text"
                     id="filled-basic"
@@ -56,6 +56,7 @@ class InputItem extends React.Component{
                     error={this.state.error}
                     value={this.state.inputValue}
                 />
+
                 <Button
                     href='#'
                     variant="outlined"

@@ -8,6 +8,7 @@ import styles from './InputItem.module.css';
 class InputItem extends React.Component{
     state =
         {
+        label: 'Add new task here....',
         inputValue: '',
         helperText: '',
         error: false,
@@ -20,19 +21,22 @@ class InputItem extends React.Component{
 
         // if ( this.state.inputValue === '' || this.state.inputValue === ' ' ){
          if(!(/^\w/.test(this.state.inputValue))){
-            return this.setState({helperText: 'Insert valid text', error: true});
+             this.setState({inputValue: ''});
+             return this.setState({helperText: 'Insert valid text',
+                error: true,
+                label:'Insert valid text' });
         }
 
         for(let i = 0; i < items.length; i++) {
             if(this.state.inputValue === items[i].value) {
                     this.setState({inputValue: ''});
-                    return  this.setState({helperText: 'This task already exists', error: true})
+                    return  this.setState({helperText: 'This task already exists', error: true,label:'This task already exists'})
                  }
             }
 
             this.props.onClickAdd(this.state.inputValue);
 
-            this.setState({inputValue: ''});
+            this.setState({inputValue: '', label:'Add new task here....'});
 
 
     };
@@ -45,7 +49,7 @@ class InputItem extends React.Component{
                 <TextField
                         type="text"
                         id="filled-basic"
-                        label='Add new task...'
+                        label={this.state.label}
                         variant="filled"
                         className={styles.text}
                         onChange={event =>

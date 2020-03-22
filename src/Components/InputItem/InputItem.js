@@ -20,7 +20,7 @@ class InputItem extends React.Component{
 
         // if ( this.state.inputValue === '' || this.state.inputValue === ' ' ){
          if(!(/^\w/.test(this.state.inputValue))){
-            return this.setState({helperText: 'This field is required', error: true});
+            return this.setState({helperText: 'Insert valid text', error: true});
         }
 
         for(let i = 0; i < items.length; i++) {
@@ -42,28 +42,29 @@ class InputItem extends React.Component{
 
         return (
             <div className={styles.input}>
-
                 <TextField
-                    type="text"
-                    id="filled-basic"
-                    label="ADD NEW TASK HERE"
-                    variant="filled"
-                    className={styles.input}
-                    onChange={event =>
-                        this.setState(
-                            { inputValue: event.target.value.toUpperCase(),
-                                        error: false,
-                                        helperText: '' }
-                            )}
-                    helperText={this.state.helperText}
-                    error={this.state.error}
-                    value={this.state.inputValue}
+                        type="text"
+                        id="filled-basic"
+                        label='Add new task...'
+                        variant="filled"
+                        className={styles.text}
+                        onChange={event =>
+                            this.setState(
+                                { inputValue: event.target.value.toUpperCase(),
+                                            error: false,
+                                            helperText: '' }
+                                )}
+                        helperText={this.state.helperText}
+                        error={this.state.error}
+                        value={this.state.inputValue}
+                        onSubmit={()=>this.clearInputHandler({items, onClickAdd, isExist})}
                 />
 
                 <Button
                     href='#'
                     variant="outlined"
                     size="large"
+                    // className={styles.text}
                     onClick={()=>this.clearInputHandler({items, onClickAdd, isExist})}
                 >
                     Add

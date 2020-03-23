@@ -22,7 +22,8 @@ class InputItem extends React.Component{
         // if ( this.state.inputValue === '' || this.state.inputValue === ' ' ){
          if(!(/^\w/.test(this.state.inputValue))){
              this.setState({inputValue: ''});
-             return this.setState({helperText: 'Insert valid text',
+             return this.setState({
+                 // helperText: 'Insert valid text',
                 error: true,
                 label:'Insert valid text' });
         }
@@ -30,7 +31,10 @@ class InputItem extends React.Component{
         for(let i = 0; i < items.length; i++) {
             if(this.state.inputValue === items[i].value) {
                     this.setState({inputValue: ''});
-                    return  this.setState({helperText: 'This task already exists', error: true,label:'This task already exists'})
+                    return  this.setState({
+                        // helperText: 'This task already exists',
+                        error: true,
+                        label:'This task already exists'})
                  }
             }
 

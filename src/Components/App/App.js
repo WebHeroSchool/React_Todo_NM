@@ -43,6 +43,19 @@ class App extends React.Component {
         this.setState({items: newItemList});
     };
 
+    onClickExist =(id) => {
+        const newItemList = this.state.items.map(item => {
+            const newItem = {...item};
+            if (item.id === id) {
+                newItem.isExist = !item.isExist;
+            }
+            return newItem;
+        });
+        this.setState({items: newItemList});
+    };
+
+
+
     onClickDelete = (id) => {
         const newItemList = this.state.items.filter(item => item.id !== id);
         this.setState(state => ({
@@ -66,14 +79,17 @@ class App extends React.Component {
 
     }))};
 
+
+
     render() {
         return (
             <Container fixed>
                 <div className={styles.wrap}>
                     <h1 className={styles.title}> TO-DO LIST:</h1>
                     <InputItem
-                        onClickAdd={this.onClickAdd}
                         items={this.state.items}
+                        onClickAdd={this.onClickAdd}
+                        onClickExist={this.onClickExist}
                     />
                     <div>
                     <ItemList

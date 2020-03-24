@@ -3,8 +3,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import styles from './InputItem.module.css';
 
-
-
 class InputItem extends React.Component{
     state =
         {
@@ -15,9 +13,7 @@ class InputItem extends React.Component{
         isExist: false,
         };
 
-
     clearInputHandler = ({items}) => {
-    console.log(this.state.inputValue);
 
         // if ( this.state.inputValue === '' || this.state.inputValue === ' ' ){
          if(!(/^\w/.test(this.state.inputValue))){
@@ -29,7 +25,7 @@ class InputItem extends React.Component{
         }
 
         for(let i = 0; i < items.length; i++) {
-            if(this.state.inputValue === items[i].value) {
+             if(this.state.inputValue === items[i].value) {
                     this.setState({inputValue: ''});
                     return  this.setState({
                         // helperText: 'This task already exists',
@@ -38,7 +34,9 @@ class InputItem extends React.Component{
                  }
             }
 
+
             this.props.onClickAdd(this.state.inputValue);
+
 
             this.setState({inputValue: '', label:'Add new task here....'});
 
@@ -46,7 +44,7 @@ class InputItem extends React.Component{
     };
 
     render(){
-         const {onClickAdd, items, isExist} = this.props;
+         const {onClickAdd, items} = this.props;
 
         return (
             <div className={styles.input}>
@@ -65,7 +63,10 @@ class InputItem extends React.Component{
                         helperText={this.state.helperText}
                         error={this.state.error}
                         value={this.state.inputValue}
-                        onSubmit={()=>this.clearInputHandler({items, onClickAdd, isExist})}
+                        onSubmit={()=> {
+                            return this.clearInputHandler({items, onClickAdd})
+                        }}
+
                 />
 
                 <Button
@@ -73,7 +74,7 @@ class InputItem extends React.Component{
                     variant="outlined"
                     size="large"
                     // className={styles.text}
-                    onClick={()=>this.clearInputHandler({items, onClickAdd, isExist})}
+                    onClick={()=>this.clearInputHandler({items, onClickAdd})}
                 >
                     Add
                 </Button>

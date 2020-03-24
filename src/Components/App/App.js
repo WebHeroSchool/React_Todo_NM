@@ -43,19 +43,6 @@ class App extends React.Component {
         this.setState({items: newItemList});
     };
 
-    onClickExist =(id) => {
-        const newItemList = this.state.items.map(item => {
-            const newItem = {...item};
-            if (item.id === id) {
-                newItem.isExist = !item.isExist;
-            }
-            return newItem;
-        });
-        this.setState({items: newItemList});
-    };
-
-
-
     onClickDelete = (id) => {
         const newItemList = this.state.items.filter(item => item.id !== id);
         this.setState(state => ({
@@ -89,14 +76,12 @@ class App extends React.Component {
                     <InputItem
                         items={this.state.items}
                         onClickAdd={this.onClickAdd}
-                        onClickExist={this.onClickExist}
                     />
                     <div>
                     <ItemList
                           items={this.state.items}
                           onClickDone={this.onClickDone}
                           onClickDelete={this.onClickDelete}
-
                     />
                     </div>
                     <Footer count={this.state.count}/>

@@ -12,6 +12,7 @@
 .title{
     color: #708090;
     font-family: "Apple SD Gothic Neo", sans-serif;
+    text-align: center;
 }
 @media(min-width: 320px) and (max-width: 768px){
     .wrap{

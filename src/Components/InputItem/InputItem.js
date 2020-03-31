@@ -1,6 +1,5 @@
 import React from "react";
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import { TextField, Button } from '@material-ui/core';
 import styles from './InputItem.module.css';
 
 class InputItem extends React.Component{
@@ -8,12 +7,12 @@ class InputItem extends React.Component{
         {
         label: 'Add new task here....',
         inputValue: '',
-        helperText: '',
-        error: false,
-        isExist: false,
+        // helperText: '',
+        error: false
+        // isExist: false,
         };
 
-    clearInputHandler = ({items}) => {
+    onInputHandler = ({items}) => {
 
         // if ( this.state.inputValue === '' || this.state.inputValue === ' ' ){
          if(!(/^\w/.test(this.state.inputValue))){
@@ -24,15 +23,20 @@ class InputItem extends React.Component{
                 label:'Insert valid text' });
         }
 
-        for(let i = 0; i < items.length; i++) {
-             if(this.state.inputValue === items[i].value) {
-                    this.setState({inputValue: ''});
-                    return  this.setState({
-                        // helperText: 'This task already exists',
-                        error: true,
-                        label:'This task already exists'})
-                 }
-            }
+         items.map((el)=>(
+             el.value === this.state.inputValue ?
+                 (this.setState({  error: true, label:'This task already exists'}))
+        : null ))
+
+        // for(let i = 0; i < items.length; i++) {
+        //      if(this.state.inputValue === items[i].value) {
+        //             this.setState({inputValue: ''});
+        //             return  this.setState({
+        //                 // helperText: 'This task already exists',
+        //                 error: true,
+        //                 label:'This task already exists'})
+        //          }
+        //     }
 
 
             this.props.onClickAdd(this.state.inputValue);
@@ -64,7 +68,7 @@ class InputItem extends React.Component{
                         error={this.state.error}
                         value={this.state.inputValue}
                         onSubmit={()=> {
-                            return this.clearInputHandler({items, onClickAdd})
+                            return this.onInputHandler({items, onClickAdd})
                         }}
 
                 />
@@ -74,7 +78,7 @@ class InputItem extends React.Component{
                     variant="outlined"
                     size="large"
                     // className={styles.text}
-                    onClick={()=>this.clearInputHandler({items, onClickAdd})}
+                    onClick={()=>this.onInputHandler({items, onClickAdd})}
                 >
                     Add
                 </Button>

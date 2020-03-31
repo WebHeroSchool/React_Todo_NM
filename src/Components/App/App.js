@@ -2,8 +2,8 @@ import React from 'react';
 import ItemList from '../ItemList/ItemList';
 import InputItem from '../InputItem/InputItem';
 import Footer from '../Footer/Footer';
-import styles  from './App.module.css';
-import { Container } from '@material-ui/core';
+import styles from './App.module.css';
+import {Container} from '@material-ui/core';
 
 class App extends React.Component {
     state = {
@@ -11,26 +11,24 @@ class App extends React.Component {
             {
                 value: 'CREATE NEW APP',
                 isDone: false,
-                isExist: true,
+                // isExist: true,
                 id: 1
             },
             {
                 value: 'INSERT PROPS',
                 isDone: false,
-                isExist:true,
+                // isExist: true,
                 id: 2
             },
             {
                 value: 'DO ALL TASKS',
                 isDone: false,
-                isExist:true,
+                // isExist: true,
                 id: 3
             }
-        ],
-
-        count: 3
-
+        ]
     };
+    itemId = this.state.items.length;
 
     onClickDone = (id) => {
         const newItemList = this.state.items.map(item => {
@@ -46,29 +44,30 @@ class App extends React.Component {
     onClickDelete = (id) => {
         const newItemList = this.state.items.filter(item => item.id !== id);
         this.setState(state => ({
-            items: newItemList,
-            count: state.count - 1,
-            isExist: !this.isExist
+            items: newItemList
         }));
     };
 
-    onClickAdd = (value) => {this.setState(state => ({
-        items:[
-            ...state.items,
-            {
-                value,
-                isDone: false,
-                isExist: !this.isExist,
-                id: state.count + 1
-            }
-            ],
-        count: state.count + 1,
-
-    }))};
-
-
+    onClickAdd = (value) => {
+        this.setState(state => ({
+            items: [
+                ...state.items,
+                {
+                    value,
+                    isDone: false,
+                    // isExist: true,
+                    id: this.itemId += 1
+                }
+            ]
+        }))
+    };
 
     render() {
+
+        const { items } = this.state;
+        const itemsDone = items.filter((el) => el.isDone).length;
+        const itemsTodo = items.length - itemsDone;
+
         return (
             <Container fixed>
                 <div className={styles.wrap}>
@@ -78,13 +77,16 @@ class App extends React.Component {
                         onClickAdd={this.onClickAdd}
                     />
                     <div>
-                    <ItemList
-                          items={this.state.items}
-                          onClickDone={this.onClickDone}
-                          onClickDelete={this.onClickDelete}
-                    />
+                        <ItemList
+                            items={this.state.items}
+                            onClickDone={this.onClickDone}
+                            onClickDelete={this.onClickDelete}
+                        />
                     </div>
-                    <Footer count={this.state.count}/>
+                    <Footer
+                        itemsTodo={itemsTodo}
+                        itemsDone={itemsDone}
+                    />
                 </div>
             </Container>
         );

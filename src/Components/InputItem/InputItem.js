@@ -23,20 +23,16 @@ class InputItem extends React.Component{
                 label:'Insert valid text' });
         }
 
-         items.map((el)=>(
-             el.value === this.state.inputValue ?
-                 (this.setState({   error: true, label:'This task already exists'}))
-        : null ))
 
-        // for(let i = 0; i < items.length; i++) {
-        //      if(this.state.inputValue === items[i].value) {
-        //             this.setState({inputValue: ''});
-        //             return  this.setState({
-        //                 // helperText: 'This task already exists',
-        //                 error: true,
-        //                 label:'This task already exists'})
-        //          }
-        //     }
+        for(let i = 0; i < items.length; i++) {
+             if(this.state.inputValue === items[i].value) {
+                    this.setState({inputValue: ''});
+                    return  this.setState({
+                        // helperText: 'This task already exists',
+                        error: true,
+                        label:'This task already exists'})
+                 }
+            }
 
 
             this.props.onClickAdd(this.state.inputValue);

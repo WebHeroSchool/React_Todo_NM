@@ -25,7 +25,7 @@ class InputItem extends React.Component{
 
          items.map((el)=>(
              el.value === this.state.inputValue ?
-                 (this.setState({  error: true, label:'This task already exists'}))
+                 (this.setState({   error: true, label:'This task already exists'}))
         : null ))
 
         // for(let i = 0; i < items.length; i++) {
@@ -67,8 +67,7 @@ class InputItem extends React.Component{
                         helperText={this.state.helperText}
                         error={this.state.error}
                         value={this.state.inputValue}
-                        onSubmit={()=> {
-                            return this.onInputHandler({items, onClickAdd})
+                        onSubmit={()=> {return this.onInputHandler({items, onClickAdd})
                         }}
 
                 />

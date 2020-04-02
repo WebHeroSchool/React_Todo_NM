@@ -46,7 +46,8 @@ class InputItem extends React.Component {
         const {onClickAdd, items} = this.props;
 
         return (
-            <div className={styles.input}>
+            <form className={styles.input}
+                  onSubmit={() => this.onInputHandler({items, onClickAdd})}>
                 <TextField
                     type="form"
                     id="filled-basic"
@@ -62,19 +63,17 @@ class InputItem extends React.Component {
                                 error: false
                             }
                         )}
-                    onSubmit={() => this.onInputHandler({items, onClickAdd})}
 
                 />
 
                 <Button
                     variant="outlined"
                     size="large"
-                    // className={styles.text}
                     onClick={() => this.onInputHandler({items, onClickAdd})}
                 >
                     Add
                 </Button>
-            </div>
+            </form>
         )
     }
 }

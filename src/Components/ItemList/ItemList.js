@@ -1,5 +1,5 @@
 import React from 'react';
-import Item from '../Item/Item';
+import Item from './Item/Item';
 import styles from './ItemList.module.css';
 
 const ItemList = ({items, onClickDone, onClickDelete}) =>(

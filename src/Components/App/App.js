@@ -11,19 +11,16 @@ class App extends React.Component {
             {
                 value: 'CREATE NEW APP',
                 isDone: false,
-                // isExist: true,
                 id: 1
             },
             {
                 value: 'INSERT PROPS',
                 isDone: false,
-                // isExist: true,
                 id: 2
             },
             {
                 value: 'DO ALL TASKS',
                 isDone: false,
-                // isExist: true,
                 id: 3
             }
         ]
@@ -55,7 +52,6 @@ class App extends React.Component {
                 {
                     value,
                     isDone: false,
-                    // isExist: true,
                     id: this.itemId += 1
                 }
             ]
@@ -64,7 +60,7 @@ class App extends React.Component {
 
     render() {
 
-        const { items } = this.state;
+        const {items} = this.state;
         const itemsDone = items.filter((el) => el.isDone).length;
         const itemsTodo = items.length - itemsDone;
 

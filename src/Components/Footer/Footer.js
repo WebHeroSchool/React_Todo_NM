@@ -10,4 +10,9 @@ const Footer = ({itemsTodo, itemsDone}) => (
     </div>
 );
 
+Footer.defaultProps = {
+    itemsTodo: 0,
+    itemsDone: 0
+};
+
 export default Footer;

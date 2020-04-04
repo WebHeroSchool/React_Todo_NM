@@ -12,34 +12,27 @@ class InputItem extends React.Component {
 
     onInputHandler = ({items}) => {
 
-        // if ( this.state.inputValue === '' || this.state.inputValue === ' ' ){
         if (!(/^\w/.test(this.state.inputValue))) {
-            this.setState({inputValue: ''});
             return this.setState({
-                // helperText: 'Insert valid text',
+                inputValue: '',
                 error: true,
                 label: 'Insert valid text'
             });
         }
 
-
         for (let i = 0; i < items.length; i++) {
             if (this.state.inputValue === items[i].value) {
-                this.setState({inputValue: ''});
                 return this.setState({
+                    inputValue: '',
                     error: true,
-                    label: 'This task already exists'
-                })
+                    label: 'This task already exists',
+                });
             }
         }
 
-
         this.props.onClickAdd(this.state.inputValue);
 
-
         this.setState({inputValue: '', label: 'Add new task here....'});
-
-
     };
 
     render() {

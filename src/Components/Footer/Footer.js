@@ -1,9 +1,12 @@
 import React from "react";
 import styles from './Footer.module.css';
 
-const Footer = ({count}) => (
+const Footer = ({itemsTodo, itemsDone}) => (
     <div className={styles.wrap}>
-        <span className={styles.text}>Total tasks : {count}</span>
+        <div className={styles.text}>
+            <span> Task to do  : {itemsTodo} </span>
+            <span> Done : {itemsDone} </span>
+        </div>
     </div>
 );
 

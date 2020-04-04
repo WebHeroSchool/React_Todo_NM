@@ -1,84 +1,72 @@
 import React from "react";
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import {TextField, Button} from '@material-ui/core';
 import styles from './InputItem.module.css';
 
-class InputItem extends React.Component{
+class InputItem extends React.Component {
     state =
         {
-        label: 'Add new task here....',
-        inputValue: '',
-        helperText: '',
-        error: false,
-        isExist: false,
+            label: 'Add new task here....',
+            inputValue: '',
+            error: false
         };
 
-    clearInputHandler = ({items}) => {
+    onInputHandler = ({items}) => {
 
-        // if ( this.state.inputValue === '' || this.state.inputValue === ' ' ){
-         if(!(/^\w/.test(this.state.inputValue))){
-             this.setState({inputValue: ''});
-             return this.setState({
-                 // helperText: 'Insert valid text',
+        if (!(/^\w/.test(this.state.inputValue))) {
+            return this.setState({
+                inputValue: '',
                 error: true,
-                label:'Insert valid text' });
+                label: 'Insert valid text'
+            });
         }
 
-        for(let i = 0; i < items.length; i++) {
-             if(this.state.inputValue === items[i].value) {
-                    this.setState({inputValue: ''});
-                    return  this.setState({
-                        // helperText: 'This task already exists',
-                        error: true,
-                        label:'This task already exists'})
-                 }
+        for (let i = 0; i < items.length; i++) {
+            if (this.state.inputValue === items[i].value) {
+                return this.setState({
+                    inputValue: '',
+                    error: true,
+                    label: 'This task already exists',
+                });
             }
+        }
 
+        this.props.onClickAdd(this.state.inputValue);
 
-            this.props.onClickAdd(this.state.inputValue);
-
-
-            this.setState({inputValue: '', label:'Add new task here....'});
-
-
+        this.setState({inputValue: '', label: 'Add new task here....'});
     };
 
-    render(){
-         const {onClickAdd, items} = this.props;
+    render() {
+        const {onClickAdd, items} = this.props;
 
         return (
-            <div className={styles.input}>
+            <form className={styles.input}
+                  onSubmit={() => this.onInputHandler({items, onClickAdd})}>
                 <TextField
-                        type="text"
-                        id="filled-basic"
-                        label={this.state.label}
-                        variant="filled"
-                        className={styles.text}
-                        onChange={event =>
-                            this.setState(
-                                { inputValue: event.target.value.toUpperCase(),
-                                            error: false,
-                                            helperText: '' }
-                                )}
-                        helperText={this.state.helperText}
-                        error={this.state.error}
-                        value={this.state.inputValue}
-                        onSubmit={()=> {
-                            return this.clearInputHandler({items, onClickAdd})
-                        }}
+                    type="form"
+                    id="filled-basic"
+                    label={this.state.label}
+                    variant="filled"
+                    className={styles.text}
+                    error={this.state.error}
+                    value={this.state.inputValue}
+                    onChange={event =>
+                        this.setState(
+                            {
+                                inputValue: event.target.value.toUpperCase(),
+                                error: false
+                            }
+                        )}
 
                 />
 
                 <Button
-                    href='#'
                     variant="outlined"
                     size="large"
-                    // className={styles.text}
-                    onClick={()=>this.clearInputHandler({items, onClickAdd})}
+                    onClick={() => this.onInputHandler({items, onClickAdd})}
                 >
                     Add
                 </Button>
-            </div>
+            </form>
         )
     }
 }

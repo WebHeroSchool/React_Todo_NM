@@ -1,6 +1,8 @@
 import React from "react";
 import {TextField, Button} from '@material-ui/core';
 import styles from './InputItem.module.css';
+import propTypes from 'prop-types';
+import Item from "../ItemList/Item/Item";
 
 class InputItem extends React.Component {
     state =
@@ -71,5 +73,9 @@ class InputItem extends React.Component {
     }
 }
 
+Item.propTypes = {
+    items: propTypes.array.isRequired,
+    onClickAdd: propTypes.func.isRequired
+};
 
 export default InputItem;

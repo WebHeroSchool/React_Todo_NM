@@ -1,5 +1,7 @@
 import React from "react";
 import styles from './Footer.module.css';
+import propTypes from 'prop-types';
+
 
 const Footer = ({itemsTodo, itemsDone}) => (
     <div className={styles.wrap}>
@@ -15,4 +17,8 @@ Footer.defaultProps = {
     itemsDone: 0
 };
 
+Footer.propTypes={
+    itemsTodo: propTypes.number,
+    itemsDone: propTypes.number
+};
 export default Footer;

@@ -1,6 +1,7 @@
 import React from 'react';
 import Item from './Item/Item';
 import styles from './ItemList.module.css';
+import propTypes from 'prop-types';
 
 const ItemList = ({items, onClickDone, onClickDelete}) =>(
 <div className={styles.wrap}>
@@ -12,7 +13,6 @@ const ItemList = ({items, onClickDone, onClickDelete}) =>(
                 id={item.id}
                 onClickDone={onClickDone}
                 onClickDelete={onClickDelete}
-
             />
         )}
 </div>
@@ -24,10 +24,14 @@ ItemList.defaultProps = {
             value: 'Add task',
             isDone: false,
             id: 0
-
         }
     ]
 };
 
+ItemList.propTypes = {
+    items: propTypes.array,
+    onClickDone: propTypes.func.isRequired,
+    onClickDelete: propTypes.func.isRequired
+};
 
 export default ItemList;

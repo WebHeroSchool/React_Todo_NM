@@ -10,8 +10,8 @@ const Item = ({id, value, isDone,  onClickDone, onClickDelete}) => (
         <Checkbox
             checked={isDone}
             color="default"
-            // value="default"
-            // inputProps={{ 'aria-label': 'primary checkbox' }}
+            value="default"
+            inputProps={{ 'aria-label': 'primary checkbox' }}
             onClick={() => onClickDone(id)}
         />
     <span className={

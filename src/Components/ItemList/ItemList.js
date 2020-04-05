@@ -9,7 +9,6 @@ const ItemList = ({items, onClickDone, onClickDelete}) =>(
                 key={item.id}
                 value={item.value}
                 isDone={item.isDone}
-                isExist={item.isExist}
                 id={item.id}
                 onClickDone={onClickDone}
                 onClickDelete={onClickDelete}

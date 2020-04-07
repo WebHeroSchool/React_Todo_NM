@@ -6,38 +6,58 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import propTypes from 'prop-types';
 
 
-const Item = ({id, value, isDone,  onClickDone, onClickDelete}) => (
-    <div className={styles.wrap}>
-        <Checkbox
-            checked={isDone}
-            color="default"
-            value="default"
-            inputProps={{ 'aria-label': 'primary checkbox' }}
-            onClick={() => onClickDone(id)}
-        />
-    <span className={
-        classname({
-            [styles.item]: true,
-            [styles.done]: isDone
-        })
-    }> {value} </span>
+class Item extends React.Component {
+    componentDidMount = () => {
+      console.log('componentDidMount');
+    };
 
-        <DeleteIcon
-            className={styles.btn}
-            fontSize="large"
-            onClick={() => onClickDelete(id)}
-        />
+    componentDidUpdate() {
+      console.log('componentDidUpdate');
+    }
 
-    </div>
+    componentWillUnmount() {
+      console.log('componentWillUnmount');
+    }
 
-);
+
+    render() {
+      const {
+        id, value, isDone, onClickDone, onClickDelete
+      } = this.props;
+
+      return (
+            <div className={styles.wrap}>
+                <Checkbox
+                    checked={isDone}
+                    color="default"
+                    value="default"
+                    inputProps={{ 'aria-label': 'primary checkbox' }}
+                    onClick={() => onClickDone(id)}
+                />
+                <span className={
+                    classname({
+                      [styles.item]: true,
+                      [styles.done]: isDone
+                    })
+                }> {value} </span>
+
+                <DeleteIcon
+                    className={styles.btn}
+                    fontSize="large"
+                    onClick={() => onClickDelete(id)}
+                />
+
+            </div>
+      );
+    }
+}
 
 Item.propTypes = {
-    id: propTypes.number.isRequired,
-    isDone: propTypes.bool.isRequired,
-    value: propTypes.string.isRequired,
-    onClickDone: propTypes.func.isRequired,
-    onClickDelete: propTypes.func.isRequired
+  id: propTypes.number.isRequired,
+  isDone: propTypes.bool.isRequired,
+  value: propTypes.string.isRequired,
+  onClickDone: propTypes.func.isRequired,
+  onClickDelete: propTypes.func.isRequired
 };
 
 export default Item;

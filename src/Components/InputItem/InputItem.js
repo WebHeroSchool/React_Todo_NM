@@ -2,7 +2,6 @@ import React from "react";
 import {TextField, Button} from '@material-ui/core';
 import styles from './InputItem.module.css';
 import propTypes from 'prop-types';
-import Item from "../ItemList/Item/Item";
 
 class InputItem extends React.Component {
     state =
@@ -12,7 +11,7 @@ class InputItem extends React.Component {
             error: false
         };
 
-    onInputHandler = ({items}) => {
+    onInputHandler = ({items, onClickAdd}) => {
 
         if (!(/^\w/.test(this.state.inputValue))) {
             return this.setState({
@@ -32,13 +31,13 @@ class InputItem extends React.Component {
             }
         }
 
-        this.props.onClickAdd(this.state.inputValue);
+        onClickAdd(this.state.inputValue);
 
         this.setState({inputValue: '', label: 'Add new task here....'});
     };
 
     render() {
-        const {onClickAdd, items} = this.props;
+        const {items, onClickAdd} = this.props;
 
         return (
             <form className={styles.input}
@@ -73,7 +72,7 @@ class InputItem extends React.Component {
     }
 }
 
-Item.propTypes = {
+InputItem.propTypes = {
     items: propTypes.array.isRequired,
     onClickAdd: propTypes.func.isRequired
 };

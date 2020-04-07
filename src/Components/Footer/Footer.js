@@ -18,7 +18,7 @@ Footer.defaultProps = {
 };
 
 Footer.propTypes={
-    itemsTodo: propTypes.number,
-    itemsDone: propTypes.number
+    itemsTodo: propTypes.number.isRequired,
+    itemsDone: propTypes.number.isRequired
 };
 export default Footer;

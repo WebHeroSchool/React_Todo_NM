@@ -7,11 +7,25 @@ import propTypes from 'prop-types';
 
 
 class Item extends React.Component {
-  render() {
-    const {
-      id, value, isDone, onClickDone, onClickDelete
-    } = this.props;
-    return (
+    componentDidMount = () => {
+      console.log('componentDidMount');
+    };
+
+    componentDidUpdate() {
+      console.log('componentDidUpdate');
+    }
+
+    componentWillUnmount() {
+      console.log('componentWillUnmount');
+    }
+
+
+    render() {
+      const {
+        id, value, isDone, onClickDone, onClickDelete
+      } = this.props;
+
+      return (
             <div className={styles.wrap}>
                 <Checkbox
                     checked={isDone}
@@ -34,8 +48,8 @@ class Item extends React.Component {
                 />
 
             </div>
-    );
-  }
+      );
+    }
 }
 
 Item.propTypes = {

@@ -1,0 +1,11 @@
+.wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: #ffe4e1;
+    font-size: 2em;
+    font-weight: bold;
+    color: #708090;
+    font-family: "Apple SD Gothic Neo", sans-serif;
+}

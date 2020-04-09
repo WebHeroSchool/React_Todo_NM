@@ -7,25 +7,25 @@ import propTypes from 'prop-types';
 
 
 class Item extends React.Component {
-    componentDidMount = () => {
-      this.myTimer = setInterval(()=> console.log('memory leak'), 1000);
-    };
+  // componentDidMount = () => {
+  //   this.myTimer = setInterval(()=> console.log('memory leak'), 1000);
+  // };
 
-    // componentDidUpdate() {
-    //   console.log('componentDidUpdate');
-    // }
+  // componentDidUpdate() {
+  //   console.log('componentDidUpdate');
+  // }
 
-    componentWillUnmount() {
-      clearInterval(this.myTimer);
-    }
+  // componentWillUnmount() {
+  //   clearInterval(this.myTimer);
+  // }
 
 
-    render() {
-      const {
-        id, value, isDone, onClickDone, onClickDelete
-      } = this.props;
+  render() {
+    const {
+      id, value, isDone, onClickDone, onClickDelete
+    } = this.props;
 
-      return (
+    return (
             <div className={styles.wrap}>
                 <Checkbox
                     checked={isDone}
@@ -48,8 +48,8 @@ class Item extends React.Component {
                 />
 
             </div>
-      );
-    }
+    );
+  }
 }
 
 Item.propTypes = {

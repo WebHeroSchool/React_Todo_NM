@@ -1,37 +1,15 @@
-.App{
-    display: flex;
-    justify-content: center;
-
-}
 .wrap{
     display: flex;
-    width: 50%;
-    background: #ffe4e1;
-    border: groove 15px #d3d3d3;
-    border-radius: 27px;
-    font-size: 2em;
-    font-family: "Apple SD Gothic Neo", sans-serif;
-}
-
-.sidebar{
-    display: flex;
     flex-direction: column;
+    font-size: 30px;
+    background: #ffe4e1;
     padding: 10px;
 }
-.content{
-    margin: 0;
-    width: 100%;
-}
-.about{
-    font-size: 2em;
+.title{
+    color: #708090;
     font-family: "Apple SD Gothic Neo", sans-serif;
+    text-align: center;
 }
-.link{
-    text-decoration: none;
-    color: #333333;
-    font-size: 2em;
-}
-
 @media(min-width: 320px) and (max-width: 768px){
     .wrap{
         display: flex;
@@ -44,4 +22,13 @@
         border: groove 5px #d3d3d3;
         border-radius: 15px;
     }
+    .title{
+        font-size: 2em;
+        color: #708090;
+        font-family: "Apple SD Gothic Neo", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
 }

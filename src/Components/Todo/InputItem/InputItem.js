@@ -12,21 +12,23 @@ class InputItem extends React.Component {
         };
 
     onInputHandler = ({ items, onClickAdd }) => {
-      if (!(/^\w/.test(this.state.inputValue))) {
-        return this.setState({
+      if (!(/[a-zA-Zа-яА-Я1-9]+/.test(this.state.inputValue))) {
+        this.setState({
           inputValue: '',
           error: true,
           label: 'Insert valid text'
         });
+        return;
       }
 
-      for (let i = 0; i < items.length; i++) {
+      for (let i = 0; i < items.length; i += 1) {
         if (this.state.inputValue === items[i].value) {
-          return this.setState({
+          this.setState({
             inputValue: '',
             error: true,
             label: 'This task already exists'
           });
+          return;
         }
       }
 

@@ -32,6 +32,7 @@ class InputItem extends React.Component {
         }
       }
 
+
       onClickAdd(this.state.inputValue);
 
       this.setState({ inputValue: '', label: 'Add new task here....' });

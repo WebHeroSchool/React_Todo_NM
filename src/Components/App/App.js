@@ -13,15 +13,15 @@ const App = () => (
             <div className={styles.wrap}>
                 <Card className={styles.sidebar}>
                     <MenuList>
-                        <Link to='/' className={styles.link}><MenuItem> About </MenuItem></Link>
-                        <Link to='/todo' className={styles.link}><MenuItem> Tasks </MenuItem></Link>
-                        <Link to='/contacts' className={styles.link}> <MenuItem> Contacts </MenuItem></Link>
+                        <Link to='/' className={styles.link}><MenuItem button={About} > About </MenuItem></Link>
+                        <Link to='/todo' className={styles.link}><MenuItem button={Todo} > TO-DO List </MenuItem></Link>
+                        <Link to='/contacts' className={styles.link}> <MenuItem button={Contacts} > Contacts </MenuItem></Link>
                     </MenuList>
                 </Card>
                 <Card className={styles.content}>
                     <Route path='/' exact component={About} />
                     <Route path='/todo' component={Todo} />
-                    <Route path='/contacts'component={Contacts} />
+                    <Route path='/contacts' component={Contacts} />
                 </Card>
             </div>
         </div>

@@ -52,12 +52,12 @@ class Item extends React.Component {
   }
 }
 
-Item.propTypes = {
-  id: propTypes.number.isRequired,
-  isDone: propTypes.bool.isRequired,
-  value: propTypes.string.isRequired,
-  onClickDone: propTypes.func.isRequired,
-  onClickDelete: propTypes.func.isRequired
-};
+// Item.propTypes = {
+//   id: propTypes.number.isRequired,
+//   isDone: propTypes.bool.isRequired,
+//   value: propTypes.string.isRequired,
+//   onClickDone: propTypes.func.isRequired,
+//   onClickDelete: propTypes.func.isRequired
+// };
 
 export default Item;

@@ -73,9 +73,9 @@ class InputItem extends React.Component {
     }
 }
 
-InputItem.propTypes = {
-  items: propTypes.array.isRequired,
-  onClickAdd: propTypes.func.isRequired
-};
+// InputItem.propTypes = {
+//   items: propTypes.array.isRequired,
+//   onClickAdd: propTypes.func.isRequired
+// };
 
 export default InputItem;

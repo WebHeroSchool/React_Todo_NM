@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState} from 'react';
 import ItemList from './ItemList/ItemList';
 import InputItem from './InputItem/InputItem';
 import Footer from './Footer/Footer';
 import styles from './Todo.module.css';
 import { Container } from '@material-ui/core';
 
-class Todo extends React.Component {
-    state = {
+const Todo = () => {
+    const InitialState = {
       items: [
         {
           value: 'CREATE NEW APP',
@@ -26,27 +26,28 @@ class Todo extends React.Component {
       ]
     };
 
-    itemId = this.state.items.length;
+    const [itemsTodo, setItemsTodo] = useState(InitialState.items);
+    const [itemId, setIdemId] = useState(InitialState.items.length);
 
-    onClickDone = (id) => {
-      const newItemList = this.state.items.map(item => {
+    const onClickDone = (id) => {
+      const newItemList = InitialState.items.map(item => {
         const newItem = { ...item };
         if (item.id === id) {
           newItem.isDone = !item.isDone;
         }
         return newItem;
       });
-      this.setState({ items: newItemList });
+        setItemsTodo({ items: newItemList });
     };
 
-    onClickDelete = (id) => {
+    const onClickDelete = (id) => {
       const newItemList = this.state.items.filter(item => item.id !== id);
       this.setState(() => ({
         items: newItemList
       }));
     };
 
-    onClickAdd = (value) => {
+    const onClickAdd = (value) => {
       this.setState((state) => ({
         items: [
           ...state.items,
@@ -58,8 +59,6 @@ class Todo extends React.Component {
         ]
       }));
     };
-
-    render() {
       const { items } = this.state;
       const itemsDone = items.filter((el) => el.isDone).length;
       const itemsTodo = items.length - itemsDone;

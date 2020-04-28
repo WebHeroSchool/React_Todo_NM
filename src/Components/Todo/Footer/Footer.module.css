@@ -17,18 +17,19 @@
 }
 @media(min-width: 320px) and (max-width: 768px){
     .wrap{
+        justify-content: space-between;
         width: 85%;
         padding: 2px 5px;
-        display: flex;
         border-radius: 10px;
         background-color: #d3d3d3;
         margin: 5px;
     }
 
     .text{
-        margin: 0;
+        margin: 5px;
         font-size: 15px;
         font-weight: bold;
         color: #545454;
+
     }
 }

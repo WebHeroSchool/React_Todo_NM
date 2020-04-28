@@ -6,26 +6,10 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import propTypes from 'prop-types';
 
 
-class Item extends React.Component {
-    componentDidMount = () => {
-      this.myTimer = setInterval(()=> console.log('memory leak'), 1000);
-    };
-
-    // componentDidUpdate() {
-    //   console.log('componentDidUpdate');
-    // }
-
-    componentWillUnmount() {
-      clearInterval(this.myTimer);
-    }
-
-
-    render() {
-      const {
-        id, value, isDone, onClickDone, onClickDelete
-      } = this.props;
-
-      return (
+const Item = ({
+  id, value, isDone, onClickDone, onClickDelete
+}) =>{
+  return (
             <div className={styles.wrap}>
                 <Checkbox
                     checked={isDone}
@@ -48,9 +32,8 @@ class Item extends React.Component {
                 />
 
             </div>
-      );
-    }
-}
+  );
+};
 
 Item.propTypes = {
   id: propTypes.number.isRequired,

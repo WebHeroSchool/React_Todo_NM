@@ -2,6 +2,7 @@ import React from 'react';
 import { TextField, Button } from '@material-ui/core';
 import styles from './InputItem.module.css';
 import propTypes from 'prop-types';
+import Item from '../Todo/ItemList/Item/Item';
 
 class InputItem extends React.Component {
     state =
@@ -11,32 +12,34 @@ class InputItem extends React.Component {
           error: false
         };
 
-    onInputHandler = ({ items, onClickAdd }) => {
+    onInputHandler = ({ items }) => {
       if (!(/^\w/.test(this.state.inputValue))) {
-        return this.setState({
+        this.setState({
           inputValue: '',
           error: true,
           label: 'Insert valid text'
         });
+        return;
       }
 
-      for (let i = 0; i < items.length; i++) {
+      for (let i = 0; i < items.length; i += 1) {
         if (this.state.inputValue === items[i].value) {
-          return this.setState({
+          this.setState({
             inputValue: '',
             error: true,
             label: 'This task already exists'
           });
+          return;
         }
       }
 
-      onClickAdd(this.state.inputValue);
+      this.props.onClickAdd(this.state.inputValue);
 
       this.setState({ inputValue: '', label: 'Add new task here....' });
     };
 
     render() {
-      const { items, onClickAdd } = this.props;
+      const { onClickAdd, items } = this.props;
 
       return (
             <form className={styles.input}
@@ -70,7 +73,7 @@ class InputItem extends React.Component {
     }
 }
 
-InputItem.propTypes = {
+Item.propTypes = {
   items: propTypes.array.isRequired,
   onClickAdd: propTypes.func.isRequired
 };

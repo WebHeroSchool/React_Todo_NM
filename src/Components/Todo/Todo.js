@@ -29,7 +29,6 @@ const Todo = () => {
   const [itemsArr, setItemsArr] = useState(InitialState.items);
   const itemId = itemsArr.length;
 
-
   const onClickDone = (id) => {
     const newItemList = itemsArr.map(item => {
       const newItem = { ...item };
@@ -85,6 +84,5 @@ const Todo = () => {
             </Container>
   );
 };
-
 
 export default Todo;

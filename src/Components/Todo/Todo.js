@@ -26,63 +26,61 @@ const Todo = () => {
     ]
   };
 
-  const [itemsState, setItemsState] = useState(InitialState.items);
-  // const [itemId, setItemId] = useState(InitialState.items.length);
+  const [itemsArr, setItemsArr] = useState(InitialState.items);
+  const itemId = itemsArr.length;
+
 
   const onClickDone = (id) => {
-    const newItemList = itemsState.map(item => {
+    const newItemList = itemsArr.map(item => {
       const newItem = { ...item };
       if (item.id === id) {
         newItem.isDone = !item.isDone;
       }
       return newItem;
     });
-    setItemsState({ newItemList });
-    console.log(itemsState);
-
+    setItemsArr(newItemList);
   };
 
-  // const onClickDelete = (id) => {
-  //   const newItemList = itemsState.filter(item => item.id !== id);
-  //   setItemsState(newItemList);
-  // };
+  const onClickDelete = (id) => {
+    const newItemList = itemsArr.filter(item => item.id !== id);
+    setItemsArr(newItemList);
+  };
 
-  // const onClickAdd = (value) => {
-  //   setItemsState((state) => ({
-  //     [
-  //       ...InitialState.items,
-  //       {
-  //         value,
-  //         isDone: false,
-  //         setIdemId(itemId += 1);
-  //       }
-  //     ]
-  //   }));
-  // };
-  //
-  // const itemsDone = setItemId(itemsState.filter((el) => el.isDone).length);
-  // const itemsTodo = itemId - itemsDone;
+  const onClickAdd = (value) => {
+    setItemsArr(
+      [...itemsArr,
+        {
+          value,
+          isDone: false,
+          id: itemId + 1
+        }
+      ]
+    );
+  };
 
+  const itemsDone = itemsArr.filter((el) => el.isDone).length;
+  const itemsTodo = itemsArr.length - itemsDone;
 
   return (
+
             <Container className={styles.wrap}>
                 <div className={styles.wrap}>
                     <h1 className={styles.title}> TO-DO LIST:</h1>
                     <InputItem
-                        items={itemsState}
-                        // onClickAdd={onClickAdd}
+                        items={itemsArr}
+                        onClickAdd={onClickAdd}
                     />
                     <div>
                         <ItemList
-                            items={itemsState}
+                            items={itemsArr}
                             onClickDone={onClickDone}
-                            // onClickDelete={onClickDelete}
+                            onClickDelete={onClickDelete}
                         />
                     </div>
-                    <Footer
-                        // itemsTodo={itemsTodo}
-                        // itemsDone={itemsDone}
-                    />
+                     <Footer
+                         itemsTodo={itemsTodo}
+                         itemsDone={itemsDone}
+                     />
                 </div>
             </Container>
   );

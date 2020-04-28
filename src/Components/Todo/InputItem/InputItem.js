@@ -44,7 +44,7 @@ const InputItem = (
                 <TextField
                     type="form"
                     id="filled-basic"
-                    label={InputItem.label}
+                    label={inputItem.label}
                     variant="filled"
                     className={styles.text}
                     error={inputItem.error}

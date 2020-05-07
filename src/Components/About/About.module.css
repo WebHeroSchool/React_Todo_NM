@@ -74,6 +74,10 @@ ul{
         width: -moz-min-content;
         padding: 0;
     }
+    .myImage img{
+        width: 200px;
+        height: 200px;
+    }
 }
 
 @media (min-width: 1024px){
@@ -113,5 +117,9 @@ ul{
         font-size: .6em;
         width: -moz-min-content;
         padding: 0;
+    }
+    .myImage img{
+        width: 300px;
+        height: 300px;
     }
 }

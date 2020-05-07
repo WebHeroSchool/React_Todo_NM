@@ -16,14 +16,17 @@ class About extends React.Component {
 
     componentDidMount() {
       octokit.repos.listForUser({
-        username: this.state.username
-      }).then(({ data }) => {
-        this.setState({
-          repoList: data,
-          isLoading: false,
-          fetchReposSuccess: true
-        });
+        username: this.state.username,
+        per_page: 100,
+        since: '2020-01-01'
       })
+        .then(({ data }) => {
+          this.setState({
+            repoList: data,
+            isLoading: false,
+            fetchReposSuccess: true
+          });
+        })
         .catch(err =>{
           this.setState({
             error: err,
@@ -66,7 +69,7 @@ class About extends React.Component {
                             </div>
                             <ul>
                                 {repoList.map(repo => (
-                                    <li key={repo.id}>
+                                    <li key={repo.name}>
                                     <a href={repo.html_url}
                                        target="blank"
                                        >

@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './Contacts.module.css';
+import { CardContent } from '@material-ui/core';
 
 const Contacts = () => {
   return (
-        <div className={styles.wrap}>
-            CONTACTS
-        </div>
+        <CardContent className={styles.wrap}>
+            <h1>CONTACTS</h1>
+        </CardContent>
   );
 };
 

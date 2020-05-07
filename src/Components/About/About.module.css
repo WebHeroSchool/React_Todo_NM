@@ -33,7 +33,10 @@ ul{
     width: -moz-min-content;
     padding: 0;
 }
-
+.myImage img{
+    width: 100px;
+    height: 100px;
+}
 
 @media (min-width: 720px) and (max-width: 1024px){
     .wrap{
@@ -98,7 +101,6 @@ ul{
     .myImage{
         display: flex;
         justify-content: center;
-
     }
 
 

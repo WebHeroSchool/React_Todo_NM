@@ -59,7 +59,7 @@ class About extends React.Component {
                             </div>
 
                             <div className={styles.myImage}>
-                                <img src={avatarURL} alt={name} width='100'/>
+                                <img src={avatarURL} alt={name}/>
                             </div>
                             <div className={styles.myRepos}>
                                 My repos:

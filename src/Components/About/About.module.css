@@ -34,6 +34,7 @@ ul{
     padding: 0;
 }
 
+
 @media (min-width: 720px) and (max-width: 1024px){
     .wrap{
         display: flex;
@@ -97,7 +98,10 @@ ul{
     .myImage{
         display: flex;
         justify-content: center;
+
     }
+
+
     ul{
         padding-left: 25%;
     }

@@ -31,6 +31,7 @@ const About = () => {
     })
       .then(({ data }) => {
         setState({
+          ...state,
           repoList: data,
           isLoading: false,
           fetchReposSuccess: true
@@ -49,6 +50,7 @@ const About = () => {
     })
       .then((response) => {
         setResp({
+          ...state,
           avatarURL: response.data.avatar_url,
           name: response.data.name
         });

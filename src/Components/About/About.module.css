@@ -1,11 +1,125 @@
 .wrap{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    height: 100%;
+    flex-direction: column;
     background: #ffe4e1;
-    font-size: 2em;
+    font-size: 1em;
     font-weight: bold;
     color: #708090;
     font-family: "Apple SD Gothic Neo", sans-serif;
+
+}
+.aboutMe{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.myName, .myRepos, .myImage{
+    display: flex;
+    justify-content: center;
+    font-size: 1em;
+    text-align: center;
+    padding: 5px;
+}
+
+ul{
+    padding-left: 5%;
+}
+.aboutMe ul li a{
+    text-decoration: none;
+    color: #808080;
+    font-size: .6em;
+    width: -moz-min-content;
+    padding: 0;
+}
+.myImage img{
+    width: 100px;
+    height: 100px;
+}
+
+@media (min-width: 720px) and (max-width: 1024px){
+    .wrap{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        background: #ffe4e1;
+        font-size: 1em;
+        font-weight: bold;
+        color: #708090;
+        font-family: "Apple SD Gothic Neo", sans-serif;
+
+    }
+    .aboutMe{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+    .myName, .myRepos{
+        font-size: 1em;
+        text-align: center;
+    }
+    .myImage{
+        display: flex;
+        justify-content: center;
+    }
+    ul{
+        padding-left: 35%;
+    }
+    .aboutMe ul li a{
+        text-decoration: none;
+        color: #808080;
+        font-size: .6em;
+        width: -moz-min-content;
+        padding: 0;
+    }
+    .myImage img{
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (min-width: 1024px){
+    .wrap{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        /*flex-direction: column;*/
+        background: #ffe4e1;
+        font-size: 1em;
+        font-weight: bold;
+        color: #708090;
+        font-family: "Apple SD Gothic Neo", sans-serif;
+
+    }
+    .aboutMe{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+    .myName, .myRepos{
+        font-size: 1em;
+        text-align: center;
+    }
+    .myImage{
+        display: flex;
+        justify-content: center;
+    }
+
+
+    ul{
+        padding-left: 25%;
+    }
+   .aboutMe ul li a{
+        text-decoration: none;
+        color: #808080;
+        font-size: .6em;
+        width: -moz-min-content;
+        padding: 0;
+    }
+    .myImage img{
+        width: 300px;
+        height: 300px;
+    }
 }

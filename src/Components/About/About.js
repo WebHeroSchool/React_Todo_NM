@@ -1,75 +1,84 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './About.module.css';
 import { CardContent, CircularProgress } from '@material-ui/core';
 import { Octokit } from '@octokit/rest';
 
 const octokit = new Octokit();
 
-class About extends React.Component {
-    state = {
-      isLoading: true,
-      repoList: [],
-      username: 'Natalina27',
-      fetchReposSuccess: false,
-      error: ''
-    };
+const About = () => {
+  const Initialstate = {
+    isLoading: true,
+    repoList: [],
+    username: 'Natalina27',
+    fetchReposSuccess: false,
+    error: ''
+  };
+  const Initialresp = {
+    avatarUrl: '',
+    name: '',
+    error: ''
+  };
 
-    componentDidMount() {
-      octokit.repos.listForUser({
-        username: this.state.username,
-        per_page: 100,
-        since: '2020-01-01'
-      })
-        .then(({ data }) => {
-          this.setState({
-            repoList: data,
-            isLoading: false,
-            fetchReposSuccess: true
-          });
-        })
-        .catch(err =>{
-          this.setState({
-            error: err,
-            isLoading: false,
-            fetchReposSuccess: false
-          });
+
+  const [state, setState] = useState(Initialstate);
+  const [resp, setResp] = useState(Initialresp);
+
+  useEffect(() => {
+    octokit.repos.listForUser({
+      username: state.username,
+      per_page: 100,
+      since: '2020-01-01'
+    })
+      .then(({ data }) => {
+        setState({
+          repoList: data,
+          isLoading: false,
+          fetchReposSuccess: true
         });
-
-      octokit.users.getByUsername({
-        username: this.state.username
       })
-        .then((response) => {
-          this.setState({
-            avatarURL: response.data.avatar_url,
-            name: response.data.name
-          });
+      .catch(err =>{
+        setState({
+          error: err,
+          isLoading: false,
+          fetchReposSuccess: false
         });
-    }
+      });
 
-    render() {
-      const {
-        isLoading, repoList, avatarURL, name, fetchReposSuccess, error
-      } = this.state;
-      return (
+    octokit.users.getByUsername({
+      username: state.username
+    })
+      .then((response) => {
+        setResp({
+          avatarURL: response.data.avatar_url,
+          name: response.data.name
+        });
+      })
+      .catch(err =>{
+        setResp({
+          error: err
+        });
+      });
+  }, []);
+  return (
             <CardContent className={styles.wrap}>
-                <h1>{isLoading ? <CircularProgress color="secondary"/> : 'ABOUT' }</h1>
-                {!isLoading
+                <h1>{state.isLoading ? <CircularProgress color="secondary"/> : 'ABOUT' }</h1>
+                {!state.isLoading
                 && <div>
-                    {!fetchReposSuccess ? 'Something went wrong.... ' + error
+                    {!state.fetchReposSuccess ? 'Something went wrong.... ' + state.error + resp.error
                       : <div className={styles.aboutMe}>
                             <div className={styles.myName}>
-                                 {name}
+                                 {resp.name}
                             </div>
 
                             <div className={styles.myImage}>
-                                <img src={avatarURL} alt={name}/>
+                                <img src={resp.avatarURL} alt={resp.name}/>
                             </div>
                             <div className={styles.myRepos}>
                                 My repos:
                             </div>
                             <ul>
-                                {repoList.map(repo => (
-                                    <li key={repo.name}>
+                                {state.repoList.map(repo => (
+                                    <li key={repo.id}>
                                     <a href={repo.html_url}
                                        target="blank"
                                        >
@@ -83,8 +92,7 @@ class About extends React.Component {
                 </div>
                 }
             </CardContent>
-      );
-    }
-}
+  );
+};
 
 export default About;

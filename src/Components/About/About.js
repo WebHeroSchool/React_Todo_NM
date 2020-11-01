@@ -60,7 +60,7 @@ const About = () => {
           error: err
         });
       });
-  }, []);
+  }, [state]);
   return (
             <CardContent className={styles.wrap}>
                 <h1>{state.isLoading ? <CircularProgress color="secondary"/> : 'ABOUT' }</h1>

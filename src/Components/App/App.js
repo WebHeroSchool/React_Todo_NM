@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Card, MenuItem, MenuList } from '@material-ui/core';
-import Todo from '../Todo/Todo';
-import About from '../About/About';
-import Contacts from '../Contacts/Contacts';
+import Todo from './Todo/Todo';
+import About from './About/About';
+import Contacts from './Contacts/Contacts';
 import styles from './App.module.css';
 
 

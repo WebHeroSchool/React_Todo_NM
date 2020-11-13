@@ -1,28 +1,48 @@
+body{
+    margin: 0;
+}
 .App{
     display: flex;
-    justify-content: center;
-}
-.wrap{
-    display: flex;
     flex-direction: column;
-    font-size: 10px;
-    background: #ffe4e1;
-    height: 50%;
-    width: initial;
-    padding: 5px;
-    border: groove 5px #d3d3d3;
-    border-radius: 15px;
+    justify-content: flex-start;
+    background-color: #E5E5E5;
 }
+.nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: max-content;
+    max-height: max-content;
+}
+/*.wrap{*/
+/*    !*display: flex;*!*/
+/*    !*flex-direction: column;*!*/
+/*    !*font-size: 10px;*!*/
+/*    !*height: 50%;*!*/
+/*    !*width: initial;*!*/
+/*    !*padding: 5px;*!*/
+/*    !*border: groove 1px #d3d3d3;*!*/
+/*    !*border-radius: 15px;*!*/
+/*}*/
 .sidebar{
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    height: max-content;
+    max-height: max-content;
+    /*background-color: #E5E5E5;*/
+}
+.menuList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /*border: 1px solid red;*/
+    background-color: #E5E5E5;
 }
 .link li{
     text-decoration: none;
-    color: #808080;
     font-size: 1em;
     font-weight: bold;
     width: -moz-min-content;
@@ -30,6 +50,22 @@
 }
 .link{
     text-decoration: none;
+    margin: 5px;
+    padding: 1vw 2vw;
+    background-color: #E5E5E5;;
+    color: black;
+    font-size: 27px;
+    border-radius: 37px;
+    transition: background-color 0.2s ease-in;
+}
+.link:hover{
+    background-color: lightblue;
+    color: white;
+}
+
+.linkActive{
+    background-color: #356EFF;
+    color: white;
 }
 
 @media(min-width: 720px) and (max-width: 1024px){
@@ -52,10 +88,7 @@
     }
     .wrap{
         display: flex;
-        flex-direction: row;
-        width: 50%;
         background: #ffe4e1;
-        border: groove 15px #d3d3d3;
         border-radius: 27px;
         font-size: 2em;
         font-family: "Apple SD Gothic Neo", sans-serif;
@@ -65,7 +98,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 30%;
+        width: 70%;
     }
 
     .content{
@@ -81,7 +114,6 @@
     }
     .link li{
         text-decoration: none;
-        color: #808080;
         font-size: .5em;
         width: -moz-min-content;
         padding: 0;

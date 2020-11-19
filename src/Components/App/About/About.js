@@ -63,36 +63,39 @@ const About = () => {
   }, [state]);
   return (
             <CardContent className={styles.wrap}>
+              <div className={styles.about}>
                 <h1>{state.isLoading ? <CircularProgress color="secondary"/> : 'ABOUT' }</h1>
+                <div className={styles.myName}>
+                  {resp.name}
+                </div>
+                <div className={styles.myImage}>
+                  <img src={resp.avatarURL} alt={resp.name}/>
+                </div>
+              </div>
+              <main className={styles.reps}>
                 {!state.isLoading
                 && <div>
-                    {!state.fetchReposSuccess ? 'Something went wrong.... ' + state.error + resp.error
+                  {!state.fetchReposSuccess ? 'Something went wrong.... ' + state.error + resp.error
                       : <div className={styles.aboutMe}>
-                            <div className={styles.myName}>
-                                 {resp.name}
-                            </div>
-
-                            <div className={styles.myImage}>
-                                <img src={resp.avatarURL} alt={resp.name}/>
-                            </div>
-                            <div className={styles.myRepos}>
-                                My repos:
-                            </div>
-                            <ul>
-                                {state.repoList.map(repo => (
-                                    <li key={repo.id}>
-                                    <a href={repo.html_url}
-                                       target="blank"
-                                       >
-                                        {repo.name}
-                                    </a>
-
-                                </li>))}
-                            </ul>
+                        <div className={styles.myRepos}>
+                          My repos:
                         </div>
-                    }
+                        <ul>
+                          {state.repoList.map(repo => (
+                              <li key={repo.id}>
+                                <a href={repo.html_url}
+                                   target="blank"
+                                >
+                                  {repo.name}
+                                </a>
+
+                              </li>))}
+                        </ul>
+                      </div>
+                  }
                 </div>
                 }
+              </main>
             </CardContent>
   );
 };

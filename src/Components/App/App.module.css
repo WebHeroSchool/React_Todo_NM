@@ -5,7 +5,18 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    min-height: 400px;
     background-color: #E5E5E5;
+}
+.inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding-top: 27px;
 }
 .nav{
     display: flex;
@@ -62,7 +73,6 @@ body{
     background-color: lightblue;
     color: white;
 }
-
 .linkActive{
     background-color: #356EFF;
     color: white;
@@ -71,6 +81,10 @@ body{
 @media(min-width: 720px) and (max-width: 1024px){
     .wrap{
         font-size: 15px;
+    }
+    .inner{
+        width: 350px;
+        max-height: 720px;
     }
     .sidebar{
         /*display: flex;*/
@@ -85,6 +99,13 @@ body{
     .App{
         display: flex;
         justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        min-height: 650px;
+    }
+    .inner{
+        width: 700px;
+        max-height: 720px;
     }
     .wrap{
         display: flex;

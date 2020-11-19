@@ -1,14 +1,24 @@
 .wrap{
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: space-around;
     flex-direction: column;
-    background: #ffe4e1;
+    background: #E5E5E5;
     font-size: 1em;
     font-weight: bold;
-    color: #708090;
     font-family: "Apple SD Gothic Neo", sans-serif;
-
+    width: 700px;
+    height: 700px;
+    border: 1px solid red;
+}
+.about{
+    background: #FFF;
+    height: 200px;
+    border: 1px solid red;
+}
+.reps{
+    background: #FFF;
+    height: 400px;
+    border: 1px solid red;
 }
 .aboutMe{
     display: flex;
@@ -40,15 +50,15 @@ ul{
 
 @media (min-width: 720px) and (max-width: 1024px){
     .wrap{
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        flex-direction: column;
-        background: #ffe4e1;
-        font-size: 1em;
-        font-weight: bold;
-        color: #708090;
-        font-family: "Apple SD Gothic Neo", sans-serif;
+        /*display: flex;*/
+        /*justify-content: space-evenly;*/
+        /*align-items: center;*/
+        /*flex-direction: column;*/
+        /*background: #ffe4e1;*/
+        /*font-size: 1em;*/
+        /*font-weight: bold;*/
+        /*color: #708090;*/
+        /*font-family: "Apple SD Gothic Neo", sans-serif;*/
 
     }
     .aboutMe{

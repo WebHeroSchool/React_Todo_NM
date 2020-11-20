@@ -49,15 +49,15 @@ body{
     transition: background-color .3s ease-in-out;
 }
 .linkActive{
-    display: flex;
-    text-decoration: none;
-    margin: 5px;
-    padding: 1vw 2vw;
-    font-size: 14px;
-    font-weight: 700;
-    border-radius: 37px;
-    width: 110px;
-    cursor: pointer;
+    /*display: flex;*/
+    /*text-decoration: none;*/
+    /*margin: 5px;*/
+    /*padding: 1vw 2vw;*/
+    /*font-size: 14px;*/
+    /*font-weight: 700;*/
+    /*border-radius: 37px;*/
+    /*width: 110px;*/
+    /*cursor: pointer;*/
     background-color: #356EFF;
     color: #FFF;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);

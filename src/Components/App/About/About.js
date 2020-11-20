@@ -22,46 +22,47 @@ const About = () => {
   const [state, setState] = useState(InitialState);
   const [resp, setResp] = useState(InitialResp);
 
-  useEffect(() => {
-    octokit.repos.listForUser({
-      username: state.username,
-      per_page: 10,
-      since: '2020-01-01'
-    })
-      .then(({ data }) => {
-        setState({
-          ...state,
-          repoList: data,
-          isLoading: false,
-          fetchReposSuccess: true
-        });
-      })
-      .catch(err =>{
-        setState({
-          error: err,
-          isLoading: false,
-          fetchReposSuccess: false
-        });
-      });
-
-    octokit.users.getByUsername({
-      username: state.username
-    })
-      .then((response) => {
-        setResp({
-          ...state,
-          avatarURL: response.data.avatar_url,
-          name: response.data.name
-        });
-      })
-      .catch(err =>{
-        setResp({
-          error: err
-        });
-      });
-  }, [state]);
+  // useEffect(() => {
+  //   octokit.repos.listForUser({
+  //     username: state.username,
+  //     per_page: 10,
+  //     since: '2020-01-01'
+  //   })
+  //     .then(({ data }) => {
+  //       setState({
+  //         ...state,
+  //         repoList: data,
+  //         isLoading: false,
+  //         fetchReposSuccess: true
+  //       });
+  //     })
+  //     .catch(err =>{
+  //       setState({
+  //         error: err,
+  //         isLoading: false,
+  //         fetchReposSuccess: false
+  //       });
+  //     });
+  //
+  //   octokit.users.getByUsername({
+  //     username: state.username
+  //   })
+  //     .then((response) => {
+  //       setResp({
+  //         ...state,
+  //         avatarURL: response.data.avatar_url,
+  //         name: response.data.name
+  //       });
+  //     })
+  //     .catch(err =>{
+  //       setResp({
+  //         error: err
+  //       });
+  //     });
+  // }, [state]);
   return (
-            <CardContent className={styles.wrap}>
+             // <CardContent className={styles.content}>
+      <>
               <div className={styles.about}>
                 <h1>{state.isLoading ? <CircularProgress color="secondary"/> : 'ABOUT' }</h1>
                 <div className={styles.myName}>
@@ -95,7 +96,8 @@ const About = () => {
                 </div>
                 }
               </main>
-            </CardContent>
+             {/*</CardContent>*/}
+      </>
   );
 };
 

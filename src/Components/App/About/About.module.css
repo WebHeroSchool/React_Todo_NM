@@ -1,15 +1,15 @@
-.wrap{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    background: #E5E5E5;
-    font-size: 1em;
-    font-weight: bold;
-    font-family: "Apple SD Gothic Neo", sans-serif;
-    width: 700px;
-    height: 700px;
-    border: 1px solid red;
-}
+/*.wrap{*/
+/*    display: flex;*/
+/*    justify-content: space-around;*/
+/*    flex-direction: column;*/
+/*    background: #E5E5E5;*/
+/*    font-size: 1em;*/
+/*    font-weight: bold;*/
+/*    font-family: "Apple SD Gothic Neo", sans-serif;*/
+/*    width: 700px;*/
+/*    height: 700px;*/
+/*    border: 1px solid red;*/
+/*}*/
 .about{
     background: #FFF;
     height: 200px;

@@ -6,27 +6,26 @@ import { Octokit } from '@octokit/rest';
 const octokit = new Octokit();
 
 const About = () => {
-  const Initialstate = {
+  const InitialState = {
     isLoading: true,
     repoList: [],
     username: 'Natalina27',
     fetchReposSuccess: false,
     error: ''
   };
-  const Initialresp = {
+  const InitialResp = {
     avatarUrl: '',
     name: '',
     error: ''
   };
 
-
-  const [state, setState] = useState(Initialstate);
-  const [resp, setResp] = useState(Initialresp);
+  const [state, setState] = useState(InitialState);
+  const [resp, setResp] = useState(InitialResp);
 
   useEffect(() => {
     octokit.repos.listForUser({
       username: state.username,
-      per_page: 100,
+      per_page: 10,
       since: '2020-01-01'
     })
       .then(({ data }) => {

@@ -1,142 +1,109 @@
 body{
+    font-family: Roboto, Arial, sans-serif;
+
     margin: 0;
+    padding: 0;
+
+    background-color: #E5E5E5;
 }
-.App{
+.wrap{
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
     min-height: 400px;
     background-color: #E5E5E5;
+    border: 1px solid red;
 }
 .inner{
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100%;
-    padding-top: 27px;
+    border: 1px solid red;
 }
 .nav{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: max-content;
-    max-height: max-content;
-}
-/*.wrap{*/
-/*    !*display: flex;*!*/
-/*    !*flex-direction: column;*!*/
-/*    !*font-size: 10px;*!*/
-/*    !*height: 50%;*!*/
-/*    !*width: initial;*!*/
-/*    !*padding: 5px;*!*/
-/*    !*border: groove 1px #d3d3d3;*!*/
-/*    !*border-radius: 15px;*!*/
-/*}*/
-.sidebar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-around;
     width: 100%;
     height: max-content;
     max-height: max-content;
-    /*background-color: #E5E5E5;*/
-}
-.menuList{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    /*border: 1px solid red;*/
-    background-color: #E5E5E5;
-}
-.link li{
-    text-decoration: none;
-    font-size: 1em;
-    font-weight: bold;
-    width: -moz-min-content;
-    padding: 5px;
 }
 .link{
+    display: flex;
     text-decoration: none;
     margin: 5px;
     padding: 1vw 2vw;
-    background-color: #E5E5E5;;
-    color: black;
-    font-size: 27px;
+    background-color: #E5E5E5;
+    color: #000;
+    font-size: 14px;
+    font-weight: 700;
     border-radius: 37px;
-    transition: background-color 0.2s ease-in;
+    width: 110px;
+    cursor: pointer;
 }
 .link:hover{
-    background-color: lightblue;
-    color: white;
+    background-color: #add8e6;
+    color: #FFF;
+    transition: background-color .3s ease-in-out;
 }
 .linkActive{
+    display: flex;
+    text-decoration: none;
+    margin: 5px;
+    padding: 1vw 2vw;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 37px;
+    width: 110px;
+    cursor: pointer;
     background-color: #356EFF;
-    color: white;
+    color: #FFF;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
 }
-
+.content{
+    height: 80%;
+    width: 100%;
+    margin: 0 0 24px 0;
+}
 @media(min-width: 720px) and (max-width: 1024px){
     .wrap{
-        font-size: 15px;
+        min-height: 400px;
     }
     .inner{
-        width: 350px;
-        max-height: 720px;
+        width: 50px;
+        max-height: 560px;
     }
-    .sidebar{
-        /*display: flex;*/
-        /*!*flex-direction: column;*!*/
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
+    .content{
+        min-height: 450px;
     }
 
 }
 @media(min-width: 1024px){
-    .App{
-        display: flex;
-        justify-content: center;
-        width: 100vw;
-        height: 100vh;
-        min-height: 650px;
-    }
     .inner{
         width: 700px;
-        max-height: 720px;
+        max-height: 700px;
+        padding-top: 25px;
     }
-    .wrap{
-        display: flex;
-        background: #ffe4e1;
-        border-radius: 27px;
-        font-size: 2em;
-        font-family: "Apple SD Gothic Neo", sans-serif;
+    .nav{
+        max-width: 320px;
+        margin: 0 0 24px 0;
     }
-
-    .sidebar{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 70%;
+    .link{
+        font-size: 16px;
+        width: 128px;
+        outline: none;
+    }
+    .linkActive{
+        color: #FFF;
+        background: #356EFF;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
     }
 
     .content{
-        margin: 0;
+        height: 80%;
         width: 100%;
-    }
-    .about{
-        font-size: 1.5em;
-        font-family: "Apple SD Gothic Neo", sans-serif;
-    }
-    .link{
-        text-decoration: none;
-    }
-    .link li{
-        text-decoration: none;
-        font-size: .5em;
-        width: -moz-min-content;
-        padding: 0;
+        margin: 0 0 24px 0;
     }
 }

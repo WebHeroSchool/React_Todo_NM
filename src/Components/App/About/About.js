@@ -2,99 +2,91 @@ import React, { useState, useEffect } from 'react';
 import styles from './About.module.css';
 import { CircularProgress } from '@material-ui/core';
 import { Octokit } from '@octokit/rest';
+import Contacts from "./Contacts/Contacts";
+import Repos from "./Repos/Repos";
 
 const octokit = new Octokit();
 
 const About = () => {
-  const InitialState = {
-    isLoading: true,
-    repoList: [],
-    username: 'Natalina27',
-    fetchReposSuccess: false,
-    error: ''
-  };
-  const InitialResp = {
-    avatarUrl: '',
-    name: '',
-    error: ''
-  };
 
-  const [state, setState] = useState(InitialState);
-  const [resp, setResp] = useState(InitialResp);
+  // const InitialState = {
+  //   isLoading: true,
+  //   repoList: [],
+  //   username: 'Natalina27',
+  //   fetchReposSuccess: false,
+  //   error: ''
+  // };
+  //
+  // const InitialResp = {
+  //   avatarUrl: '',
+  //   name: '',
+  //   bio: '',
+  //   error: ''
+  // };
+  //
+  // const [state, setState] = useState(InitialState);
+  // const [resp, setResp] = useState(InitialResp);
+  //
+  // const user = state.username;
+  // useEffect(() => {
+  //   octokit.repos.listForUser({
+  //     username: user,
+  //     per_page: 10,
+  //     since: '2020-01-01'
+  //   })
+  //     .then(({ data }) => {
+  //       setState({
+  //         ...state,
+  //         repoList: data,
+  //         isLoading: false,
+  //         fetchReposSuccess: true
+  //       });
+  //     })
+  //     .catch(err =>{
+  //       setState({
+  //         error: err,
+  //         isLoading: false,
+  //         fetchReposSuccess: false
+  //       });
+  //     });
+  //
+  //   octokit.users.getByUsername({
+  //     username: user
+  //   })
+  //     .then((response) => {
+  //       setResp({
+  //         ...state,
+  //         avatarURL: response.data.avatar_url,
+  //         name: response.data.name,
+  //         bio: response.data.bio
+  //       });
+  //     })
+  //     .catch(err =>{
+  //       setResp({
+  //         error: err
+  //       });
+  //     });
+  //
+  //   console.log('resp.avatarUrl', resp.avatarUrl);
+  //
+  //  }, [state, resp]);
 
-  useEffect(() => {
-    octokit.repos.listForUser({
-      username: state.username,
-      per_page: 10,
-      since: '2020-01-01'
-    })
-      .then(({ data }) => {
-        setState({
-          ...state,
-          repoList: data,
-          isLoading: false,
-          fetchReposSuccess: true
-        });
-      })
-      .catch(err =>{
-        setState({
-          error: err,
-          isLoading: false,
-          fetchReposSuccess: false
-        });
-      });
-
-    octokit.users.getByUsername({
-      username: state.username
-    })
-      .then((response) => {
-        setResp({
-          ...state,
-          avatarURL: response.data.avatar_url,
-          name: response.data.name
-        });
-      })
-      .catch(err =>{
-        setResp({
-          error: err
-        });
-      });
-  }, [state]);
   return (
       <>
-              <div className={styles.about}>
-                <h1>{state.isLoading ? <CircularProgress color="secondary"/> : 'ABOUT' }</h1>
-                <div className={styles.myName}>
-                  {resp.name}
-                </div>
-                <div className={styles.myImage}>
-                  <img src={resp.avatarURL} alt={resp.name}/>
-                </div>
-              </div>
-              <main className={styles.reps}>
-                {!state.isLoading
-                && <div>
-                  {!state.fetchReposSuccess ? 'Something went wrong.... ' + state.error + resp.error
-                      : <div className={styles.aboutMe}>
-                        <div className={styles.myRepos}>
-                          My repos:
-                        </div>
-                        <ul>
-                          {state.repoList.map(repo => (
-                              <li key={repo.id}>
-                                <a href={repo.html_url}
-                                   target="blank"
-                                >
-                                  {repo.name}
-                                </a>
-
-                              </li>))}
-                        </ul>
-                      </div>
-                  }
-                </div>
-                }
-              </main>
+        <div className={styles.about}>
+                <Contacts
+                    // name = {resp.name}
+                    // avatar = {resp.avatarUrl}
+                    // bio = {resp.bio}
+                />
+                <Repos
+                    // isLoading = {state.isLoading}
+                    // reposSuccess = {state.fetchReposSuccess}
+                    // stateError = {state.error}
+                    // respError = {resp.error}
+                    // repoList = {state.repoList}
+                />
+        </div>
       </>
   );
 };

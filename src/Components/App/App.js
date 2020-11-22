@@ -2,22 +2,20 @@ import React, {useEffect, useState} from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Todo from './Todo/Todo';
 import About from './About/About';
-import Contacts from './CV/Contacts';
+import CV from './CV/CV';
 import styles from './App.module.css';
 import classnames from 'classnames';
 
 const App = () => {
   const [buttons, setButtons] = useState([
-      {name: 'ABOUT', isClicked: false, path: '/' },
+      {name: 'ABOUT', isClicked: true, path: '/' },
       {name: 'TODO', isClicked: false, path: '/todo'},
-      {name: 'CV', isClicked: false, path: '/contacts'}
+      {name: 'CV', isClicked: false, path: '/cv'}
     ]);
 
-  const chooseButtonClick = (idx) =>{
+  const chooseButtonClick = (idx) => {
     let newButtons =[...buttons] ;
-    newButtons.map(el => {
-      el.isClicked = false ;
-    });
+    newButtons.map(el => el.isClicked = false);
     newButtons[idx].isClicked = true;
     setButtons(newButtons);
   };
@@ -33,9 +31,9 @@ const App = () => {
           >{el.name}</Link>
 });
 
-useEffect(() => {
-  console.log('buttons in useEffect', buttons);
-}, [buttons]);
+// useEffect(() => {
+//   console.log('buttons in useEffect', buttons);
+// }, [buttons]);
 
   return(
       <Router>
@@ -47,7 +45,7 @@ useEffect(() => {
             <div className={styles.content}>
               <Route path='/' exact component={About} />
               <Route path='/todo' component={Todo} />
-              <Route path='/contacts' component={Contacts} />
+              <Route path='/cv' component={CV} />
             </div>
           </div>
         </div>

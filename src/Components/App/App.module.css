@@ -23,7 +23,6 @@ body{
 .nav{
     display: flex;
     justify-content: space-around;
-    width: 100%;
     height: max-content;
     max-height: max-content;
 }
@@ -35,10 +34,10 @@ body{
     padding: 1vw 2vw;
     background-color: #E5E5E5;
     color: #000;
-    font-size: 14px;
+    font-size: 10px;
     font-weight: 700;
     border-radius: 37px;
-    width: 80px;
+    width: 20%;
     cursor: pointer;
 }
 .link:hover{
@@ -54,10 +53,11 @@ body{
 .content{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     height: 100%;
     width: 100%;
     margin: 0 0 24px 0;
+    padding: 15px;
 }
 @media(min-width: 720px) and (max-width: 1024px){
     .wrap{

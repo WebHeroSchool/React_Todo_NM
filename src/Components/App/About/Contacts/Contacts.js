@@ -4,6 +4,8 @@ import whatsappIcon from '../../../../images/whatsapp.png';
 import githubIcon from '../../../../images/github.png';
 import lkdIn from '../../../../images/linkendin.png';
 import styles from './Contacts.module.css';
+import fb from '../../../../images/fb.png';
+import twitter from '../../../../images/twitter.jpg';
 
 const Contacts = (
     // { name, bio, avatar }
@@ -45,6 +47,18 @@ const Contacts = (
                 target='_blank'
                 rel='noopener noreferrer'>
               <img src={lkdIn} alt='linkendin' className = {styles.socialsIcon} />
+            </a>
+            <a
+                href='https://twitter.com/MyunsterNatalya'
+                target='_blank'
+                rel='noopener noreferrer'>
+              <img src={twitter} alt='twitter' className = {styles.socialsIcon} />
+            </a>
+            <a
+                href='https://www.facebook.com/natalyamyunster'
+                target='_blank'
+                rel='noopener noreferrer'>
+              <img src={fb} alt='facebook' className = {styles.socialsIcon} />
             </a>
           </div>
         </div>

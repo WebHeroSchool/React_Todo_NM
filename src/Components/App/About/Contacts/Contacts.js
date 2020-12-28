@@ -1,22 +1,20 @@
 import React from 'react';
-import mailIcon from '../../../../images/mail.png';
+import mailIcon from '../../../../images/email.png';
 import whatsappIcon from '../../../../images/whatsapp.png';
 import githubIcon from '../../../../images/github.png';
-import lkdIn from '../../../../images/linkendin.png';
+import lkdIn from '../../../../images/linkedin.png';
 import styles from './Contacts.module.css';
-import fb from '../../../../images/fb.png';
-import twitter from '../../../../images/twitter.jpg';
+import fb from '../../../../images/facebook.png';
+import twitter from '../../../../images/twitter.png';
 
-const Contacts = (
-    // { name, bio, avatar }
-    ) => {
+const Contacts = ({ name, bio, avatar }) => {
 
   return (
       <div className={styles.wrap}>
-        {/*<img src={avatar} alt='avatar' className={styles.avatar}/>*/}
+        <img src={avatar} alt='avatar' className={styles.avatar}/>
         <div>
-          {/*<h1 className={styles.name}>{name}</h1>*/}
-          {/*<p className={styles.bio}>{bio}</p>*/}
+          <h1 className={styles.name}>{name}</h1>
+          <p className={styles.bio}>{bio}</p>
           <div>
             <div className={styles.contacts}>
               <img src = {mailIcon} alt = 'mail' className = {styles.contactsIcon} />
@@ -46,7 +44,7 @@ const Contacts = (
                 href='https://www.linkedin.com/in/natalya-myunster-3a171117/'
                 target='_blank'
                 rel='noopener noreferrer'>
-              <img src={lkdIn} alt='linkendin' className = {styles.socialsIcon} />
+              <img src={lkdIn} alt='linkedin' className = {styles.socialsIcon} />
             </a>
             <a
                 href='https://twitter.com/MyunsterNatalya'

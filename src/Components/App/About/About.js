@@ -89,7 +89,7 @@ const About = () => {
 
     // console.log('resp.avatarUrl', resp.avatarUrl);
 
-   }, []);
+   }, [state, user]);
 
   return (
       <>

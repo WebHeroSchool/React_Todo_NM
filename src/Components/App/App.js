@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
 import Todo from './Todo/Todo';
 import About from './About/About';
 import CV from './CV/CV';
+
 import styles from './App.module.css';
 import classnames from 'classnames';
 
@@ -14,7 +16,7 @@ const App = () => {
     ]);
 
   const chooseButtonClick = (idx) => {
-    let newButtons =[...buttons] ;
+    const newButtons =[...buttons] ;
     newButtons.map(el => el.isClicked = false);
     newButtons[idx].isClicked = true;
     setButtons(newButtons);
@@ -31,9 +33,9 @@ const App = () => {
           >{el.name}</Link>
 });
 
-// useEffect(() => {
-//   console.log('buttons in useEffect', buttons);
-// }, [buttons]);
+useEffect(() => {
+  console.log('buttons in useEffect', buttons);
+}, [buttons]);
 
   return(
       <Router>

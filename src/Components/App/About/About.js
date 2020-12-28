@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styles from './About.module.css';
-// import { CircularProgress } from '@material-ui/core';
 import { Octokit } from '@octokit/rest';
 import Contacts from "./Contacts/Contacts";
 import Repos from "./Repos/Repos";
@@ -28,30 +27,27 @@ const About = () => {
   const [resp, setResp] = useState(InitialResp);
 
   const user = state.username;
-  console.log('user', user);
-
-
-  octokit.users.getByUsername({
-    username: user
-  })
-      .then((response) => {
-        console.log('response', response);
-
-        setResp({
-          ...state,
-          avatarURL: response.data.avatar_url,
-          name: response.data.name,
-          bio: response.data.bio
-        });
-      })
-      .catch(err =>{
-        setResp({
-          error: err
-        });
-      });
 
   useEffect(() => {
-    octokit.repos.listForUser({
+      octokit.users.getByUsername({
+          username: user
+      })
+          .then((response) => {
+              console.log('response', response);
+
+              setResp({
+                  ...state,
+                  avatarURL: response.data.avatar_url,
+                  name: response.data.name,
+                  bio: response.data.bio
+              });
+          })
+          .catch(err =>{
+              setResp({
+                  error: err
+              });
+          });
+      octokit.repos.listForUser({
       username: user,
       per_page: 10,
       since: '2020-01-01'
@@ -100,7 +96,7 @@ const About = () => {
         <div className={styles.about}>
                 <Contacts
                     name = {resp.name}
-                    avatar = {resp.avatarUrl}
+                    avatar = {resp.avatarURL}
                     bio = {resp.bio}
                 />
                 <Repos

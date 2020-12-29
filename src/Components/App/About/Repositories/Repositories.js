@@ -1,13 +1,11 @@
 import React from 'react';
-import styles from './Repos.module.css';
+import styles from './Repositories.module.css';
 import RepoItem from "./RepoItem/RepoItem";
 
-const Repos = (
-    { isLoading, reposSuccess, stateError, respError, repoList }
-    ) => {
+const Repositories = ({ repoList }) => {
   return (
       <div className={styles.repos}>
-       <h2>Repos</h2>
+       <h2>Repositories</h2>
         <ul className={styles.list}>
           {repoList.map(repo => (
               <li key={repo.id}>
@@ -28,4 +26,4 @@ const Repos = (
   );
 };
 
-export default Repos;
+export default Repositories;

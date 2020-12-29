@@ -16,7 +16,7 @@ const App = () => {
 
     useEffect(() => {
         sessionStorage.setItem("buttons", JSON.stringify(buttons));
-    }, [buttons]);
+    });
 
   const chooseButtonClick = (idx) => {
     const newButtons =[...buttons] ;

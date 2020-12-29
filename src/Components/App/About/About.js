@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Contacts from "./Contacts/Contacts";
-import Repos from "./Repos/Repos";
+import Repositories from "./Repositories/Repositories";
 import styles from './About.module.css';
 import { Octokit } from '@octokit/rest';
 
@@ -29,7 +29,7 @@ const About = () => {
   const user = state.username;
 
   useEffect(() => {
-      octokit.repos.listForUser({
+   octokit.repos.listForUser({
           username: user,
           per_page: 10,
           since: '2020-01-01'
@@ -51,7 +51,7 @@ const About = () => {
         });
       });
 
-    octokit.users.getByUsername({
+   octokit.users.getByUsername({
       username: user
     })
       .then((response) => {
@@ -68,7 +68,7 @@ const About = () => {
           error: err
         });
       });
-    }, [state, user, resp]);
+    }, []);
 
   return (
       <>
@@ -78,7 +78,7 @@ const About = () => {
                     avatar = {resp.avatarURL}
                     bio = {resp.bio}
                 />
-                <Repos
+                <Repositories
                     isLoading = {state.isLoading}
                     reposSuccess = {state.fetchReposSuccess}
                     stateError = {state.error}

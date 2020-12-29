@@ -44,9 +44,9 @@ const App = () => {
               {linkList}
             </div>
             <div className={styles.content}>
-              <Route path='/' exact component={About} />
-              <Route path='/todo' component={Todo} />
-              <Route path='/cv' component={CV} />
+              <Route path='React_TODO_NM/' exact component={About} />
+              <Route path='React_TODO_NM/todo' component={Todo} />
+              <Route path='React_TODO_NM/cv' component={CV} />
             </div>
           </div>
         </div>

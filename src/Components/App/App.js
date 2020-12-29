@@ -7,7 +7,7 @@ import styles from './App.module.css';
 import classnames from 'classnames';
 
 const App = () => {
-    const initialButtonsState = JSON.parse(localStorage.getItem("buttons")) || [
+    const initialButtonsState = JSON.parse(sessionStorage.getItem("buttons")) || [
         {name: 'ABOUT', isClicked: true, path: '/' },
         {name: 'TODO', isClicked: false, path: '/todo'},
         {name: 'CV', isClicked: false, path: '/cv'}
@@ -15,8 +15,8 @@ const App = () => {
   const [buttons, setButtons] = useState(initialButtonsState);
 
     useEffect(() => {
-        localStorage.setItem("buttons", JSON.stringify(buttons));
-    });
+        sessionStorage.setItem("buttons", JSON.stringify(buttons));
+    }, [buttons]);
 
   const chooseButtonClick = (idx) => {
     const newButtons =[...buttons] ;
@@ -35,10 +35,6 @@ const App = () => {
               onClick={() => chooseButtonClick(i)}
           >{el.name}</Link>
 });
-
-useEffect(() => {
-  console.log('buttons in useEffect', buttons);
-}, [buttons]);
 
   return(
       <Router>

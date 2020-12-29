@@ -31,7 +31,7 @@ const Todo = () => {
 
     useEffect(() => {
      localStorage.setItem("items", JSON.stringify(itemsArr));
-    });
+    }, [itemsArr]);
 
 
   const onClickDone = (id) => {

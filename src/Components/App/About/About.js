@@ -29,25 +29,6 @@ const About = () => {
   const user = state.username;
 
   useEffect(() => {
-      octokit.users.getByUsername({
-          username: user
-      })
-          .then((response) => {
-              console.log('response', response);
-
-              setResp({
-                  ...resp,
-                  avatarURL: response.data.avatar_url,
-                  name: response.data.name,
-                  bio: response.data.bio
-              });
-          })
-          .catch(err =>{
-              setResp({
-                  ...resp,
-                  error: err
-              });
-          });
       octokit.repos.listForUser({
           username: user,
           per_page: 10,
@@ -74,8 +55,6 @@ const About = () => {
       username: user
     })
       .then((response) => {
-        console.log('response', response);
-
         setResp({
           ...resp,
           avatarURL: response.data.avatar_url,
@@ -89,8 +68,7 @@ const About = () => {
           error: err
         });
       });
-
-   }, [state, user]);
+    }, [state, user, resp]);
 
   return (
       <>

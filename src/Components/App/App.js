@@ -1,30 +1,57 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { Card, MenuItem, MenuList } from '@material-ui/core';
-import Todo from '../Todo/Todo';
-import About from '../About/About';
-import Contacts from '../Contacts/Contacts';
+import Todo from './Todo/Todo';
+import About from './About/About';
+import CV from './CV/CV';
 import styles from './App.module.css';
+import classnames from 'classnames';
 
+const App = () => {
+    const initialButtonsState = JSON.parse(sessionStorage.getItem("buttons")) || [
+        {name: 'ABOUT', isClicked: true, path: '/' },
+        {name: 'TODO', isClicked: false, path: '/todo'},
+        {name: 'CV', isClicked: false, path: '/cv'}
+    ];
+  const [buttons, setButtons] = useState(initialButtonsState);
 
-const App = () => (
-    <Router>
-        <div className={styles.App}>
-            <div className={styles.wrap}>
-                <Card className={styles.sidebar}>
-                    <MenuList>
-                        <Link to='/' className={styles.link}><MenuItem>ABOUT</MenuItem></Link>
-                        <Link to='/todo' className={styles.link}><MenuItem>TODO_LIST</MenuItem></Link>
-                        <Link to='/contacts' className={styles.link}> <MenuItem>CONTACTS</MenuItem></Link>
-                    </MenuList>
-                </Card>
-                <Card className={styles.content}>
-                    <Route path='/' exact component={About} />
-                    <Route path='/todo' component={Todo} />
-                    <Route path='/contacts' component={Contacts} />
-                </Card>
+    useEffect(() => {
+        sessionStorage.setItem("buttons", JSON.stringify(buttons));
+    }, [buttons]);
+
+  const chooseButtonClick = (idx) => {
+    const newButtons =[...buttons] ;
+    newButtons.map(el => el.isClicked = false);
+    newButtons[idx].isClicked = true;
+    setButtons(newButtons);
+  };
+
+  let linkList = buttons.map((el, i) => {
+  return  <Link
+              to={el.path}
+              className= {classnames({
+                [styles.link]: true,
+                [styles.linkActive]: (el.isClicked) ,
+              })}
+              onClick={() => chooseButtonClick(i)}
+          >{el.name}</Link>
+});
+
+  return(
+      <Router>
+        <div className={styles.wrap}>
+          <div className={styles.inner}>
+            <div className={styles.nav}>
+              {linkList}
             </div>
+            <div className={styles.content}>
+              <Route path='/' exact component={About} />
+              <Route path='/todo' component={Todo} />
+              <Route path='/cv' component={CV} />
+            </div>
+          </div>
         </div>
-    </Router>
-);
+      </Router>
+  );
+}
+
 export default App;

@@ -3,14 +3,14 @@ import { TextField, Button } from '@material-ui/core';
 import styles from './InputItem.module.css';
 import propTypes from 'prop-types';
 
-const InputItem = (
-  { items, onClickAdd }
-) => {
+const InputItem = ({ items, onClickAdd }) => {
+
   const InitialState = {
     label: 'Add new task here....',
     inputValue: '',
     error: false
   };
+
   const [inputItem, setInputItem] = useState(InitialState);
 
   const onInputHandler = () => {

@@ -7,7 +7,7 @@ import { Container } from '@material-ui/core';
 
 const Todo = () => {
   const InitialState = {
-    items: [
+          items: JSON.parse(localStorage.getItem("items")) || [
       {
         value: 'CREATE NEW APP',
         isDone: false,
@@ -29,13 +29,10 @@ const Todo = () => {
   const [itemsArr, setItemsArr] = useState(InitialState.items);
   const itemId = InitialState.items.length;
 
-  useEffect(() => {
-    console.log('updated');
-  },);
+    useEffect(() => {
+     localStorage.setItem("items", JSON.stringify(itemsArr));
+    }, [itemsArr]);
 
-  useEffect(() => {
-    console.log('mounted');
-  }, []);
 
   const onClickDone = (id) => {
     const newItemList = itemsArr.map(item => {

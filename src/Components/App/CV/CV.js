@@ -1,13 +1,13 @@
 import React from 'react';
-import styles from './Contacts.module.css';
+import styles from './CV.module.css';
 import { CardContent } from '@material-ui/core';
 
-const Contacts = () => {
+const CV = () => {
   return (
         <CardContent className={styles.wrap}>
-            <h1>CONTACTS</h1>
+            <h1>CV</h1>
         </CardContent>
   );
 };
 
-export default Contacts;
+export default CV;

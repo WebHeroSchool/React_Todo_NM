@@ -1,22 +1,28 @@
 {
   "files": {
-    "main.css": "/React_TODO_NM/static/css/main.a2e0511e.chunk.css",
-    "main.js": "/React_TODO_NM/static/js/main.7745c72c.chunk.js",
-    "main.js.map": "/React_TODO_NM/static/js/main.7745c72c.chunk.js.map",
-    "runtime-main.js": "/React_TODO_NM/static/js/runtime-main.6ea0822b.js",
-    "runtime-main.js.map": "/React_TODO_NM/static/js/runtime-main.6ea0822b.js.map",
-    "static/js/2.9f3b0abd.chunk.js": "/React_TODO_NM/static/js/2.9f3b0abd.chunk.js",
-    "static/js/2.9f3b0abd.chunk.js.map": "/React_TODO_NM/static/js/2.9f3b0abd.chunk.js.map",
+    "main.css": "/React_TODO_NM/static/css/main.c5ce7ab7.chunk.css",
+    "main.js": "/React_TODO_NM/static/js/main.723d1a1a.chunk.js",
+    "main.js.map": "/React_TODO_NM/static/js/main.723d1a1a.chunk.js.map",
+    "runtime-main.js": "/React_TODO_NM/static/js/runtime-main.7fea0269.js",
+    "runtime-main.js.map": "/React_TODO_NM/static/js/runtime-main.7fea0269.js.map",
+    "static/js/2.c8422788.chunk.js": "/React_TODO_NM/static/js/2.c8422788.chunk.js",
+    "static/js/2.c8422788.chunk.js.map": "/React_TODO_NM/static/js/2.c8422788.chunk.js.map",
     "index.html": "/React_TODO_NM/index.html",
-    "precache-manifest.2471a4e8f576661ab2aec19614b1f34b.js": "/React_TODO_NM/precache-manifest.2471a4e8f576661ab2aec19614b1f34b.js",
+    "precache-manifest.01b0c93e5100efc1ee12074a24986117.js": "/React_TODO_NM/precache-manifest.01b0c93e5100efc1ee12074a24986117.js",
     "service-worker.js": "/React_TODO_NM/service-worker.js",
-    "static/css/main.a2e0511e.chunk.css.map": "/React_TODO_NM/static/css/main.a2e0511e.chunk.css.map",
-    "static/js/2.9f3b0abd.chunk.js.LICENSE.txt": "/React_TODO_NM/static/js/2.9f3b0abd.chunk.js.LICENSE.txt"
+    "static/css/main.c5ce7ab7.chunk.css.map": "/React_TODO_NM/static/css/main.c5ce7ab7.chunk.css.map",
+    "static/js/2.c8422788.chunk.js.LICENSE.txt": "/React_TODO_NM/static/js/2.c8422788.chunk.js.LICENSE.txt",
+    "static/media/email.png": "/React_TODO_NM/static/media/email.775dfe7f.png",
+    "static/media/facebook.png": "/React_TODO_NM/static/media/facebook.9d07141d.png",
+    "static/media/github.png": "/React_TODO_NM/static/media/github.b6ec19ce.png",
+    "static/media/linkedin.png": "/React_TODO_NM/static/media/linkedin.fd0d5546.png",
+    "static/media/twitter.png": "/React_TODO_NM/static/media/twitter.52686040.png",
+    "static/media/whatsapp.png": "/React_TODO_NM/static/media/whatsapp.774352de.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.6ea0822b.js",
-    "static/js/2.9f3b0abd.chunk.js",
-    "static/css/main.a2e0511e.chunk.css",
-    "static/js/main.7745c72c.chunk.js"
+    "static/js/runtime-main.7fea0269.js",
+    "static/js/2.c8422788.chunk.js",
+    "static/css/main.c5ce7ab7.chunk.css",
+    "static/js/main.723d1a1a.chunk.js"
   ]
 }

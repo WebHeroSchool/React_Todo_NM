@@ -8,7 +8,6 @@ import fb from '../../../../images/facebook.png';
 import twitter from '../../../../images/twitter.png';
 
 const Contacts = ({ name, bio, avatar }) => {
-
   return (
       <div className={styles.wrap}>
         <img src={avatar} alt='avatar' className={styles.avatar}/>
@@ -22,7 +21,8 @@ const Contacts = ({ name, bio, avatar }) => {
                   href='mailto:>natalyamyunster@gmail.com'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className = {styles.link}>natalyamyunster@gmail.com</a>
+                  className = {styles.link}>natalyamyunster@gmail.com
+              </a>
             </div>
             <div className = {styles.contacts} >
               <img src = {whatsappIcon} alt = 'wa'  className = {styles.contactsIcon} />

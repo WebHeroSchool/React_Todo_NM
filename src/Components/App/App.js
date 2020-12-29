@@ -1,19 +1,22 @@
 import React, {useEffect, useState} from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
 import Todo from './Todo/Todo';
 import About from './About/About';
 import CV from './CV/CV';
-
 import styles from './App.module.css';
 import classnames from 'classnames';
 
 const App = () => {
-  const [buttons, setButtons] = useState([
-      {name: 'ABOUT', isClicked: true, path: '/' },
-      {name: 'TODO', isClicked: false, path: '/todo'},
-      {name: 'CV', isClicked: false, path: '/cv'}
-    ]);
+    const initialButtonsState = JSON.parse(localStorage.getItem("buttons")) || [
+        {name: 'ABOUT', isClicked: true, path: '/' },
+        {name: 'TODO', isClicked: false, path: '/todo'},
+        {name: 'CV', isClicked: false, path: '/cv'}
+    ];
+  const [buttons, setButtons] = useState(initialButtonsState);
+
+    useEffect(() => {
+        localStorage.setItem("buttons", JSON.stringify(buttons));
+    });
 
   const chooseButtonClick = (idx) => {
     const newButtons =[...buttons] ;

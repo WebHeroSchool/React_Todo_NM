@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import styles from './About.module.css';
-import { Octokit } from '@octokit/rest';
 import Contacts from "./Contacts/Contacts";
 import Repos from "./Repos/Repos";
+import styles from './About.module.css';
+import { Octokit } from '@octokit/rest';
 
 const octokit = new Octokit();
 
@@ -36,7 +36,7 @@ const About = () => {
               console.log('response', response);
 
               setResp({
-                  ...state,
+                  ...resp,
                   avatarURL: response.data.avatar_url,
                   name: response.data.name,
                   bio: response.data.bio
@@ -44,13 +44,14 @@ const About = () => {
           })
           .catch(err =>{
               setResp({
+                  ...resp,
                   error: err
               });
           });
       octokit.repos.listForUser({
-      username: user,
-      per_page: 10,
-      since: '2020-01-01'
+          username: user,
+          per_page: 10,
+          since: '2020-01-01'
     })
       .then(({ data }) => {
         setState({
@@ -62,6 +63,7 @@ const About = () => {
       })
       .catch(err =>{
         setState({
+            ...state,
           error: err,
           isLoading: false,
           fetchReposSuccess: false
@@ -75,7 +77,7 @@ const About = () => {
         console.log('response', response);
 
         setResp({
-          ...state,
+          ...resp,
           avatarURL: response.data.avatar_url,
           name: response.data.name,
           bio: response.data.bio
@@ -83,11 +85,10 @@ const About = () => {
       })
       .catch(err =>{
         setResp({
+            ...resp,
           error: err
         });
       });
-
-    // console.log('resp.avatarUrl', resp.avatarUrl);
 
    }, [state, user]);
 

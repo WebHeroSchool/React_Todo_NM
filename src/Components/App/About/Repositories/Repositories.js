@@ -3,12 +3,8 @@ import styles from './Repositories.module.css';
 import RepoItem from "./RepoItem/RepoItem";
 
 const Repositories = ({ repoList }) => {
-  return (
-      <div className={styles.repos}>
-       <h2>Repositories</h2>
-        <ul className={styles.list}>
-          {repoList.map(repo => (
-              <li key={repo.id}>
+    console.log('repoList', repoList);
+    const repList = repoList.map(repo => <li key={repo.id}>
                 <RepoItem
                     value = {repo.name}
                     homepage = {repo.homepage}
@@ -20,7 +16,12 @@ const Repositories = ({ repoList }) => {
                     update = {repo.updated_at}
                 />
 
-              </li>))}
+            </li>);
+  return (
+      <div className={styles.repos}>
+       <h2>Repositories</h2>
+        <ul className={styles.list}>
+            {repList}
         </ul>
         </div>
   );

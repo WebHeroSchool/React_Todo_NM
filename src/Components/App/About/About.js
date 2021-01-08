@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Contacts from "./Contacts/Contacts";
 import Repositories from "./Repositories/Repositories";
 import styles from './About.module.css';
-import { Octokit } from '@octokit/rest';
+import {Octokit}  from '@octokit/rest';
 
 const octokit = new Octokit();
 
@@ -26,9 +26,10 @@ const About = () => {
   const [state, setState] = useState(InitialState);
   const [resp, setResp] = useState(InitialResp);
 
-  const user = state.username;
-
   useEffect(() => {
+
+      const user = state.username;
+
    octokit.repos.listForUser({
           username: user,
           per_page: 10,

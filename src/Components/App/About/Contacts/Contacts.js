@@ -15,7 +15,7 @@ const Contacts = ({ name, bio, avatar }) => {
         <div>
           <h1 className={styles.name}>{name}</h1>
           <p className={styles.bio}>{bio}</p>
-          <div>
+          <div className={styles.contactsWrap}>
             <div className={styles.contacts}>
               <img src = {mailIcon} alt = 'mail' className = {styles.contactsIcon} />
               <a

@@ -1,8 +1,9 @@
 .wrap{
     display: flex;
     position: relative;
-    height: inherit;
+    height: 200px;
     padding: 12px;
+    margin-bottom: 5px;
     border: 1px solid #fff;
     border-radius: 9px;
     box-shadow: 0 0 3px rgba(0, 0, 0, .25);
@@ -12,7 +13,7 @@
 
 .avatar{
     width: auto;
-    height: 100%;
+    height: 90%;
     margin: 0 40px  0 0;
     border-radius: 9px;
     overflow: hidden;
@@ -21,30 +22,27 @@
 .name{
     font-size: 28px;
     font-weight: bold;
-
     margin: 0 0 5px 0;
 }
 
 .bio{
     font-size: 14px;
     line-height: 115%;
-
     margin: 0 0 10px 0;
-
     color: #999;
 }
 
 .contacts{
     font-size: 12px;
     line-height: 115%;
-
     display: flex;
-
     margin: 0 0 9px 0;
-
     color: #999;
-
     align-items: center;
+}
+
+.contactsWrap{
+    margin-top: 60px;
 }
 
 .contactsIcon{
@@ -55,20 +53,16 @@
 
 .link{
     text-decoration: none;
-
     color: #999;
-
     cursor: pointer;
 }
 
 .link:hover{
     text-decoration: underline;
-
     color: #356eff;
 }
 
 .socials{
-
     display: flex;
     position: absolute;
     bottom: 10px;

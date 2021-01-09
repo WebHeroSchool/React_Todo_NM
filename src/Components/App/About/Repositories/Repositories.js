@@ -3,7 +3,6 @@ import styles from './Repositories.module.css';
 import RepoItem from "./RepoItem/RepoItem";
 
 const Repositories = ({ repoList }) => {
-    console.log('repoList', repoList);
     const repList = repoList.map(repo => <li key={repo.id}>
                 <RepoItem
                     value = {repo.name}
@@ -18,11 +17,16 @@ const Repositories = ({ repoList }) => {
 
             </li>);
   return (
-      <div className={styles.repos}>
-       <h2>Repositories</h2>
-        <ul className={styles.list}>
-            {repList}
-        </ul>
+      <div className={styles.wrap}>
+       <h2 className={styles.title}>
+           My repositories on <a href='//github.com/'  target='_blank' rel='noopener noreferrer' className = {styles.link}>github.com</a>
+       </h2>
+          <div className={styles.content}>
+              <ul className={styles.list}>
+                  {repList}
+              </ul>
+          </div>
+
         </div>
   );
 };

@@ -12,7 +12,7 @@ const RepoItem = ({value, homepage, repoUrl, description, forks, language, starg
             <div className={styles.description}>{description}</div>
             <div className={styles.info}>
                 <div className={styles.param}>
-                    
+
                 </div>
                 {language}
             </div>

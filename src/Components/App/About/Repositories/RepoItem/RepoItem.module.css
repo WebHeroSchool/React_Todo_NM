@@ -10,17 +10,62 @@
     border-radius: 10px;
 }
 .title{
-
+    display: flex;
 }
 .param{
-
+    display: flex;
+    margin: 0 15px 0 0;
+    align-items: center;
 }
 .description{
-
+    font-size: 12px;
+    line-height: 14px;
+    color: #999;
 }
 .info{
-
+    display: flex;
+    font-size: 12px;
+    line-height: 14px;
+    color: #999;
+    align-items: center;
 }
 .icon{
+    width: auto;
+    height: 11px;
+    margin: 0 10px 0 0;
+}
+.circle {
+    width: 11px;
+    height: 11px;
+    margin: 0 10px 0 0;
+    border-radius: 50%;
+}
 
+.html {
+    background-color: #e34c26;
+}
+
+.css {
+    background-color: #563d7c;
+}
+
+.js {
+    background-color: #f1e05a;
+}
+.link {
+    display: block;
+    text-decoration: none;
+    color: #000;
+}
+
+.repo {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: bold;
+    margin: 0 5px 0 0;
+}
+
+.repo:hover {
+    text-decoration: underline;
+    color: #356eff;
 }

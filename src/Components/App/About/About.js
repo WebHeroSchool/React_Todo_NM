@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import Contacts from "./Contacts/Contacts";
 import Repositories from "./Repositories/Repositories";
 import styles from './About.module.css';
-import {Octokit}  from '@octokit/rest';
+import {Octokit} from '@octokit/rest';
 
 const octokit = new Octokit();
 
@@ -13,7 +13,8 @@ const About = () => {
     repoList: [],
     username: 'Natalina27',
     fetchReposSuccess: false,
-    error: ''
+    error: '',
+    page: 0
   };
 
   const InitialResp = {
@@ -70,6 +71,11 @@ const About = () => {
         });
       });
     }, []);
+    const reposOnPage = 3;
+    const displayRepo = () => {
+        const startRepo = state.page * reposOnPage;
+        return state.repoList.slice(startRepo, (startRepo + reposOnPage));
+    }
 
   return (
       <>
@@ -84,7 +90,7 @@ const About = () => {
                     reposSuccess = {state.fetchReposSuccess}
                     stateError = {state.error}
                     respError = {resp.error}
-                    repoList = {state.repoList}
+                    repoList = {displayRepo()}
                 />
         </div>
       </>

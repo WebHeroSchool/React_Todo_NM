@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/React_TODO_NM/static/css/main.ccb08a61.chunk.css",
-    "main.js": "/React_TODO_NM/static/js/main.bd437092.chunk.js",
-    "main.js.map": "/React_TODO_NM/static/js/main.bd437092.chunk.js.map",
+    "main.css": "/React_TODO_NM/static/css/main.3377dd34.chunk.css",
+    "main.js": "/React_TODO_NM/static/js/main.af96e984.chunk.js",
+    "main.js.map": "/React_TODO_NM/static/js/main.af96e984.chunk.js.map",
     "runtime-main.js": "/React_TODO_NM/static/js/runtime-main.7fea0269.js",
     "runtime-main.js.map": "/React_TODO_NM/static/js/runtime-main.7fea0269.js.map",
-    "static/js/2.f3356233.chunk.js": "/React_TODO_NM/static/js/2.f3356233.chunk.js",
-    "static/js/2.f3356233.chunk.js.map": "/React_TODO_NM/static/js/2.f3356233.chunk.js.map",
+    "static/js/2.c337b776.chunk.js": "/React_TODO_NM/static/js/2.c337b776.chunk.js",
+    "static/js/2.c337b776.chunk.js.map": "/React_TODO_NM/static/js/2.c337b776.chunk.js.map",
     "index.html": "/React_TODO_NM/index.html",
-    "precache-manifest.bcc1bf3d391899dc2ce50a1af181c7df.js": "/React_TODO_NM/precache-manifest.bcc1bf3d391899dc2ce50a1af181c7df.js",
+    "precache-manifest.d5073d418c310f9e32ac1491b750445a.js": "/React_TODO_NM/precache-manifest.d5073d418c310f9e32ac1491b750445a.js",
     "service-worker.js": "/React_TODO_NM/service-worker.js",
-    "static/css/main.ccb08a61.chunk.css.map": "/React_TODO_NM/static/css/main.ccb08a61.chunk.css.map",
-    "static/js/2.f3356233.chunk.js.LICENSE.txt": "/React_TODO_NM/static/js/2.f3356233.chunk.js.LICENSE.txt",
+    "static/css/main.3377dd34.chunk.css.map": "/React_TODO_NM/static/css/main.3377dd34.chunk.css.map",
+    "static/js/2.c337b776.chunk.js.LICENSE.txt": "/React_TODO_NM/static/js/2.c337b776.chunk.js.LICENSE.txt",
     "static/media/email.png": "/React_TODO_NM/static/media/email.775dfe7f.png",
     "static/media/facebook.png": "/React_TODO_NM/static/media/facebook.9d07141d.png",
+    "static/media/fork.png": "/React_TODO_NM/static/media/fork.41d2a3a3.png",
     "static/media/github.png": "/React_TODO_NM/static/media/github.b6ec19ce.png",
     "static/media/linkedin.png": "/React_TODO_NM/static/media/linkedin.fd0d5546.png",
     "static/media/twitter.png": "/React_TODO_NM/static/media/twitter.52686040.png",
@@ -21,8 +22,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.7fea0269.js",
-    "static/js/2.f3356233.chunk.js",
-    "static/css/main.ccb08a61.chunk.css",
-    "static/js/main.bd437092.chunk.js"
+    "static/js/2.c337b776.chunk.js",
+    "static/css/main.3377dd34.chunk.css",
+    "static/js/main.af96e984.chunk.js"
   ]
 }

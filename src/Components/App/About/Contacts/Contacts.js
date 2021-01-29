@@ -8,7 +8,7 @@ import fb from '../../../../images/facebook.png';
 import twitter from '../../../../images/twitter.png';
 
 const Contacts = ({ name, bio, avatar }) => {
-  console.log('name, bio, avatar', name, bio, avatar);
+
   return (
       <div className={styles.wrap}>
         <img src={avatar} alt='avatar' className={styles.avatar}/>

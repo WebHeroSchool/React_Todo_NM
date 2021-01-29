@@ -14,10 +14,10 @@ const About = () => {
     username: 'Natalina27',
     fetchReposSuccess: false,
     error: '',
-    page: 0
   };
 
   const InitialResp = {
+    publicRepos: 0,
     avatarUrl: '',
     name: '',
     bio: '',
@@ -26,6 +26,31 @@ const About = () => {
 
   const [state, setState] = useState(InitialState);
   const [resp, setResp] = useState(InitialResp);
+  const [page, setPage] = useState(1);
+
+  useEffect(() => {
+      const user = state.username;
+      octokit.users.getByUsername({
+          username: user
+      })
+          .then((response) => {
+              console.log(response.data);
+              setResp({
+                  ...resp,
+                  avatarURL: response.data.avatar_url,
+                  name: response.data.name,
+                  bio: response.data.bio,
+                  publicRepos: response.data.public_repos,
+              });
+          })
+          .catch(err =>{
+              setResp({
+                  ...resp,
+                  error: err
+              });
+          });
+      console.log(page);
+  }, []);
 
   useEffect(() => {
 
@@ -33,10 +58,12 @@ const About = () => {
 
    octokit.repos.listForUser({
           username: user,
-          per_page: 10,
+          per_page: 3,
+          page,
           since: '2020-01-01'
     })
       .then(({ data }) => {
+          console.log("data", data);
         setState({
           ...state,
           repoList: data,
@@ -52,30 +79,7 @@ const About = () => {
           fetchReposSuccess: false
         });
       });
-
-   octokit.users.getByUsername({
-      username: user
-    })
-      .then((response) => {
-        setResp({
-          ...resp,
-          avatarURL: response.data.avatar_url,
-          name: response.data.name,
-          bio: response.data.bio
-        });
-      })
-      .catch(err =>{
-        setResp({
-            ...resp,
-          error: err
-        });
-      });
-    }, []);
-    const reposOnPage = 3;
-    const displayRepo = () => {
-        const startRepo = state.page * reposOnPage;
-        return state.repoList.slice(startRepo, (startRepo + reposOnPage));
-    }
+    }, [page]);
 
   return (
       <>
@@ -90,7 +94,10 @@ const About = () => {
                     reposSuccess = {state.fetchReposSuccess}
                     stateError = {state.error}
                     respError = {resp.error}
-                    repoList = {displayRepo()}
+                    repoList = {state.repoList}
+                    page = {page}
+                    setPage = {setPage}
+                    publicRepos = { resp.publicRepos }
                 />
         </div>
       </>

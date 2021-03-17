@@ -8,7 +8,7 @@ const RepoItem = ({value, homepage, repoUrl, description, forks, language, starg
   return (
       <div className={styles.wrap}>
             <div className={styles.title}>
-            <a href={repoUrl} target='_blank'  className={
+            <a href={repoUrl} target='_blank' rel='noopener noreferrer' className={
                 classnames({
                     [styles.link]: true,
                     [styles.repo]: true,

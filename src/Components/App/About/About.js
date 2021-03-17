@@ -4,6 +4,9 @@ import Repositories from "./Repositories/Repositories";
 import styles from './About.module.css';
 import {Octokit} from '@octokit/rest';
 
+// todo Во время запроса должен отображать прелоудер.
+//todo pagination
+
 const octokit = new Octokit();
 
 const About = () => {

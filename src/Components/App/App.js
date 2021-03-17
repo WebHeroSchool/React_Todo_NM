@@ -51,6 +51,9 @@ const App = () => {
             </div>
           </div>
         </div>
+          <div className={styles.whs}>
+             @WebHeroSchool
+          </div>
       </Router>
   );
 }

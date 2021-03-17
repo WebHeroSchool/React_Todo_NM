@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './CV.module.css';
 import { CardContent } from '@material-ui/core';
 
+//todo add cv
+
 const CV = () => {
   return (
         <CardContent className={styles.wrap}>

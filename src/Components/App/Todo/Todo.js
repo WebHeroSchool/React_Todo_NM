@@ -5,6 +5,13 @@ import Footer from './Footer/Footer';
 import styles from './Todo.module.css';
 import { Container } from '@material-ui/core';
 
+//todo Функционал со звездочкой, для получения высшего балла:
+// todo Добавить функционал редактирования дела (по двойному клику на текст дела)
+// todo Добавить возможность сортировать, перетаскивать, менять местами элементы списка
+// todo Сохранять состояние приложения с делами в Local Storage
+// todo При перезагрузке страницы состояние приложения не должно сбрасываться. О чем речь.
+
+
 const Todo = () => {
   const InitialState = {
           items: JSON.parse(localStorage.getItem("items")) || [

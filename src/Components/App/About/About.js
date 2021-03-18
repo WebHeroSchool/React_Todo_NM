@@ -8,14 +8,15 @@ import {Octokit} from '@octokit/rest';
 
 const octokit = new Octokit();
 
-const About = () => {
+export const About = () => {
 
     const InitialState = {
         isLoading: true,
         repoList: [],
         username: 'Natalina27',
         fetchReposSuccess: false,
-        error: '',
+        stateError: '',
+        per_page: 3
     };
 
     const InitialResp = {
@@ -23,49 +24,27 @@ const About = () => {
         avatarUrl: '',
         name: '',
         bio: '',
-        error: ''
+        respError: ''
     };
 
     const [state, setState] = useState(InitialState);
     const [resp, setResp] = useState(InitialResp);
     const [page, setPage] = useState(1);
-
-    useEffect(() => {
-        const user = state.username;
-        octokit.users.getByUsername({
-            username: user
-        })
-            .then((response) => {
-                console.log('response.data',response.data.public_repos);
-                setResp({
-                    ...resp,
-                    avatarURL: response.data.avatar_url,
-                    name: response.data.name,
-                    bio: response.data.bio,
-                    publicRepos: response.data.public_repos,
-                });
-            })
-            .catch(err => {
-                setResp({
-                    ...resp,
-                    error: err
-                });
-            });
-        console.log('page1',page);
-    }, []);
+    const {name, respError, publicRepos, avatarUrl, bio} = resp;
+    const {isLoading, stateError, repoList, username, fetchReposSuccess,per_page} = state;
 
     useEffect(() => {
 
-        const user = state.username;
-        console.log('page2', page);
+        const user = username;
+
         octokit.repos.listForUser({
             username: user,
-            per_page: 3,
+            per_page,
             page,
             since: '2020-01-01'
         })
             .then(({data}) => {
-                console.log("data", data);
+                console.log("about data from octokit.repos.listForUser ", data);
                 setState({
                     ...state,
                     repoList: data,
@@ -81,29 +60,52 @@ const About = () => {
                     fetchReposSuccess: false
                 });
             });
+
+        octokit.users.getByUsername({
+            username: user
+        })
+            .then((response) => {
+                console.log('about response.data',
+                    response.data);
+                setResp({
+                    ...resp,
+                    avatarUrl: response.data.avatar_url,
+                    name: response.data.name,
+                    bio: response.data.bio,
+                    publicRepos: response.data.public_repos,
+                });
+            })
+            .catch(err => {
+                setResp({
+                    ...resp,
+                    error: err
+                });
+            });
     }, [page]);
+
+
 
     return (
         <>
             <div className={styles.about}>
                 <Contacts
-                    name={resp.name}
-                    avatar={resp.avatarURL}
-                    bio={resp.bio}
+                    name={name}
+                    avatar={avatarUrl}
+                    bio={bio}
                 />
                 <Repositories
-                    isLoading={state.isLoading}
-                    reposSuccess={state.fetchReposSuccess}
-                    stateError={state.error}
-                    respError={resp.error}
-                    repoList={state.repoList}
+                    isLoading={isLoading}
+                    reposSuccess={fetchReposSuccess}
+                    stateError={stateError}
+                    respError={respError}
+                    repoList={repoList}
                     page={page}
                     setPage={setPage}
-                    publicRepos={resp.publicRepos}
+                    per_page={per_page}
+                    publicRepos={publicRepos}
                 />
             </div>
         </>
     );
 };
 
-export default About;

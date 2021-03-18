@@ -5,7 +5,8 @@ import Pagination from '@material-ui/lab/Pagination';
 
 //todo pagination
 
-const Repositories = ({repoList, page, setPage, publicRepos}) => {
+const Repositories = (
+    {repoList, page, setPage,per_page, publicRepos}) => {
     console.log('repoList.length', repoList.length);
     console.log('page rep', page);
     console.log('publicRepos', publicRepos)
@@ -39,7 +40,7 @@ const Repositories = ({repoList, page, setPage, publicRepos}) => {
             <div className={styles.pagination}>
                 <Pagination
                     page={page}
-                    count={40}
+                    count={Math.round(publicRepos/per_page)}
                     onChange={(event, number) => setPage(number)}
                 />
             </div>

@@ -6,12 +6,10 @@ import Pagination from '@material-ui/lab/Pagination';
 //todo pagination
 
 const Repositories = (
-    {repoList, page, setPage,per_page, publicRepos}) => {
-    console.log('repoList.length', repoList.length);
-    console.log('page rep', page);
-    console.log('publicRepos', publicRepos)
+   {repoList, page, setPage,per_page, publicRepos}) => {
+
     const repList = repoList.map(repo => <li key={repo.id}>
-            <RepoItem
+        <RepoItem
                 value={repo.name}
                 homepage={repo.homepage}
                 repoUrl={repo.html_url}

@@ -1,48 +1,34 @@
-import React, {useEffect, useState} from 'react';
-import Contacts from "./Contacts/Contacts";
-import Repositories from "./Repositories/Repositories";
+import React, {useEffect} from 'react';
+import Contacts from './Contacts/Contacts';
+import Repositories from './Repositories/Repositories';
 import styles from './About.module.css';
 import {Octokit} from '@octokit/rest';
+import {useAbout} from './useAbout';
 
 // todo Во время запроса должен отображать прелоудер.
 
 const octokit = new Octokit();
 
 export const About = () => {
-
-    const InitialState = {
-        isLoading: true,
-        repoList: [],
-        username: 'Natalina27',
-        fetchReposSuccess: false,
-        stateError: '',
-        per_page: 3
-    };
-
-    const InitialResp = {
-        publicRepos: 0,
-        avatarUrl: '',
-        name: '',
-        bio: '',
-        respError: ''
-    };
-
-    const [state, setState] = useState(InitialState);
-    const [resp, setResp] = useState(InitialResp);
-    const [page, setPage] = useState(1);
-    const {name, respError, publicRepos, avatarUrl, bio} = resp;
-    const {isLoading, stateError, repoList, username, fetchReposSuccess,per_page} = state;
+    const {
+        name, respError, publicRepos, avatarUrl, bio,isLoading,
+        stateError, repoList, username, fetchReposSuccess,per_page,
+        page, setPage, state, setState, resp, setResp, date
+    } = useAbout();
 
     useEffect(() => {
 
         const user = username;
 
-        octokit.repos.listForUser({
+        octokit.repos.listForUser(
+            {
             username: user,
             per_page,
             page,
-            since: '2020-01-01'
-        })
+            since: date,
+            sort: 'updated',
+            }
+            )
             .then(({data}) => {
                 console.log("about data from octokit.repos.listForUser ", data);
                 setState({
@@ -62,17 +48,18 @@ export const About = () => {
             });
 
         octokit.users.getByUsername({
-            username: user
+            username: user,
+            since: date
         })
-            .then((response) => {
+            .then(({data}) => {
                 console.log('about response.data',
-                    response.data);
+                    data);
                 setResp({
                     ...resp,
-                    avatarUrl: response.data.avatar_url,
-                    name: response.data.name,
-                    bio: response.data.bio,
-                    publicRepos: response.data.public_repos,
+                    avatarUrl: data.avatar_url,
+                    name: data.name,
+                    bio: data.bio,
+                    publicRepos: data.public_repos,
                 });
             })
             .catch(err => {
@@ -82,8 +69,6 @@ export const About = () => {
                 });
             });
     }, [page]);
-
-
 
     return (
         <>

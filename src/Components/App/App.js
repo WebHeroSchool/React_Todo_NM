@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import Todo from './Todo/Todo';
-import About from './About/About';
+import { About } from './About/About';
 import CV from './CV/CV';
 import styles from './App.module.css';
 import classnames from 'classnames';
@@ -12,7 +12,8 @@ const App = () => {
         {name: 'TODO', isClicked: false, path: '/todo'},
         {name: 'CV', isClicked: false, path: '/cv'}
     ];
-  const [buttons, setButtons] = useState(initialButtonsState);
+
+    const [buttons, setButtons] = useState(initialButtonsState);
 
     useEffect(() => {
         sessionStorage.setItem("buttons", JSON.stringify(buttons));
@@ -25,8 +26,9 @@ const App = () => {
     setButtons(newButtons);
   };
 
-  let linkList = buttons.map((el, i) => {
+  const linkList = buttons.map((el, i) => {
   return  <Link
+      key={el.path}
               to={el.path}
               className= {classnames({
                 [styles.link]: true,
@@ -35,8 +37,9 @@ const App = () => {
               onClick={() => chooseButtonClick(i)}
           >{el.name}</Link>
 });
+  const whs = <div className={styles.whs}>@WebHeroSchool</div>;
 
-  return(
+    return(
       <Router>
         <div className={styles.wrap}>
           <div className={styles.inner}>
@@ -48,6 +51,7 @@ const App = () => {
               <Route path='/todo' component={Todo} />
               <Route path='/cv' component={CV} />
             </div>
+              {whs}
           </div>
         </div>
       </Router>

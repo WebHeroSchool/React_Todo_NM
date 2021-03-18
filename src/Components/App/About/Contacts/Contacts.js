@@ -8,13 +8,14 @@ import fb from '../../../../images/facebook.png';
 import twitter from '../../../../images/twitter.png';
 
 const Contacts = ({ name, bio, avatar }) => {
+
   return (
       <div className={styles.wrap}>
         <img src={avatar} alt='avatar' className={styles.avatar}/>
         <div>
           <h1 className={styles.name}>{name}</h1>
           <p className={styles.bio}>{bio}</p>
-          <div>
+          <div className={styles.contactsWrap}>
             <div className={styles.contacts}>
               <img src = {mailIcon} alt = 'mail' className = {styles.contactsIcon} />
               <a

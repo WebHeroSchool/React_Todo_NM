@@ -1,93 +1,96 @@
-import React, { useState, useEffect } from 'react';
-import Contacts from "./Contacts/Contacts";
-import Repositories from "./Repositories/Repositories";
+import React, {useEffect} from 'react';
+import Contacts from './Contacts/Contacts';
+import Repositories from './Repositories/Repositories';
 import styles from './About.module.css';
-import { Octokit } from '@octokit/rest';
+import {Octokit} from '@octokit/rest';
+import {useAbout} from './useAbout';
+
+// todo Во время запроса должен отображать прелоудер.
 
 const octokit = new Octokit();
 
-const About = () => {
+export const About = () => {
+    const {
+        name, respError, publicRepos, avatarUrl, bio,isLoading,
+        stateError, repoList, username, fetchReposSuccess,per_page,
+        page, setPage, state, setState, resp, setResp, date
+    } = useAbout();
 
-  const InitialState = {
-    isLoading: true,
-    repoList: [],
-    username: 'Natalina27',
-    fetchReposSuccess: false,
-    error: ''
-  };
+    useEffect(() => {
 
-  const InitialResp = {
-    avatarUrl: '',
-    name: '',
-    bio: '',
-    error: ''
-  };
+        const user = username;
 
-  const [state, setState] = useState(InitialState);
-  const [resp, setResp] = useState(InitialResp);
+        octokit.repos.listForUser(
+            {
+            username: user,
+            per_page,
+            page,
+            since: date,
+            sort: 'updated',
+            }
+            )
+            .then(({data}) => {
+                console.log("about data from octokit.repos.listForUser ", data);
+                setState({
+                    ...state,
+                    repoList: data,
+                    isLoading: false,
+                    fetchReposSuccess: true
+                });
+            })
+            .catch(err => {
+                setState({
+                    ...state,
+                    error: err,
+                    isLoading: false,
+                    fetchReposSuccess: false
+                });
+            });
 
-  const user = state.username;
+        octokit.users.getByUsername({
+            username: user,
+            since: date
+        })
+            .then(({data}) => {
+                console.log('about response.data',
+                    data);
+                setResp({
+                    ...resp,
+                    avatarUrl: data.avatar_url,
+                    name: data.name,
+                    bio: data.bio,
+                    publicRepos: data.public_repos,
+                });
+            })
+            .catch(err => {
+                setResp({
+                    ...resp,
+                    error: err
+                });
+            });
+    }, [page]);
 
-  useEffect(() => {
-   octokit.repos.listForUser({
-          username: user,
-          per_page: 10,
-          since: '2020-01-01'
-    })
-      .then(({ data }) => {
-        setState({
-          ...state,
-          repoList: data,
-          isLoading: false,
-          fetchReposSuccess: true
-        });
-      })
-      .catch(err =>{
-        setState({
-            ...state,
-          error: err,
-          isLoading: false,
-          fetchReposSuccess: false
-        });
-      });
-
-   octokit.users.getByUsername({
-      username: user
-    })
-      .then((response) => {
-        setResp({
-          ...resp,
-          avatarURL: response.data.avatar_url,
-          name: response.data.name,
-          bio: response.data.bio
-        });
-      })
-      .catch(err =>{
-        setResp({
-            ...resp,
-          error: err
-        });
-      });
-    }, []);
-
-  return (
-      <>
-        <div className={styles.about}>
+    return (
+        <>
+            <div className={styles.about}>
                 <Contacts
-                    name = {resp.name}
-                    avatar = {resp.avatarURL}
-                    bio = {resp.bio}
+                    name={name}
+                    avatar={avatarUrl}
+                    bio={bio}
                 />
                 <Repositories
-                    isLoading = {state.isLoading}
-                    reposSuccess = {state.fetchReposSuccess}
-                    stateError = {state.error}
-                    respError = {resp.error}
-                    repoList = {state.repoList}
+                    isLoading={isLoading}
+                    reposSuccess={fetchReposSuccess}
+                    stateError={stateError}
+                    respError={respError}
+                    repoList={repoList}
+                    page={page}
+                    setPage={setPage}
+                    per_page={per_page}
+                    publicRepos={publicRepos}
                 />
-        </div>
-      </>
-  );
+            </div>
+        </>
+    );
 };
 
-export default About;

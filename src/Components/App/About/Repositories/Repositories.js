@@ -39,7 +39,7 @@ const Repositories = ({repoList, page, setPage, publicRepos}) => {
             <div className={styles.pagination}>
                 <Pagination
                     page={page}
-                    count={100}
+                    count={40}
                     onChange={(event, number) => setPage(number)}
                 />
             </div>
